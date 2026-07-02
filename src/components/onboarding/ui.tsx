@@ -76,23 +76,40 @@ export function ButtonSecondary({ children, className = "", ...props }: BtnProps
 export function Section({
   id,
   dark = false,
+  num,
   children,
   className = "",
 }: {
   id: string;
   dark?: boolean;
+  num?: string;
   children: ReactNode;
   className?: string;
 }) {
   return (
     <section
       id={id}
-      className={`scroll-mt-section relative w-full py-24 sm:py-32 ${
+      className={`scroll-mt-section relative w-full overflow-hidden py-28 sm:py-40 ${
         dark ? "text-white" : "text-ink"
       } ${className}`}
       style={dark ? { background: "var(--gradient-dark)" } : undefined}
     >
-      <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">{children}</div>
+      {num && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-4 top-8 select-none font-black leading-none tracking-tighter sm:-right-6 sm:top-12"
+          style={{
+            fontSize: "clamp(180px, 26vw, 380px)",
+            color: "transparent",
+            WebkitTextStroke: "1px rgba(255,255,255,0.06)",
+          }}
+        >
+          {num}
+        </div>
+      )}
+      <div className="relative mx-auto w-full max-w-6xl px-6 lg:px-10" data-reveal>
+        {children}
+      </div>
     </section>
   );
 }
@@ -151,20 +168,20 @@ export function HumanCallout({
 }) {
   return (
     <div
-      className="mt-8 rounded-r-2xl rounded-l-md border-l-4 p-5 sm:p-6"
+      className="mt-8 rounded-r-2xl rounded-l-md border-l-4 p-5 backdrop-blur sm:p-6"
       style={{
         borderColor: "var(--human-border)",
         backgroundColor: "var(--human-bg)",
       }}
     >
       <div className="mb-3 flex items-center gap-2">
-        <HumanLogo className="text-[13px] text-ink" />
-        <span className="eyebrow text-ink/60">Chez Human</span>
+        <HumanLogo className="text-[13px] text-white" />
+        <span className="eyebrow text-white/60">Chez Human</span>
       </div>
       {title && (
-        <h4 className="mb-2 text-lg font-semibold text-ink">{title}</h4>
+        <h4 className="mb-2 text-lg font-semibold text-white">{title}</h4>
       )}
-      <div className="text-[15px] leading-relaxed text-ink/85">{children}</div>
+      <div className="text-[15px] leading-relaxed text-white/85">{children}</div>
     </div>
   );
 }
@@ -220,7 +237,7 @@ export function Chip({
       className={`rounded-full border px-3.5 py-1.5 text-sm font-medium transition-all ${
         active
           ? "border-transparent bg-gradient-brand text-white shadow-soft"
-          : "border-hairline bg-surface-raised text-ink hover:border-ink/30"
+          : "border-hairline bg-white/[0.04] text-ink hover:border-white/30"
       }`}
     >
       {children}
@@ -273,11 +290,11 @@ export function Badge({
   children: ReactNode;
 }) {
   const tones: Record<string, string> = {
-    neutral: "bg-ink/5 text-ink border-hairline",
-    success: "bg-emerald-50 text-emerald-700 border-emerald-200",
-    warning: "bg-amber-50 text-amber-800 border-amber-200",
-    danger: "bg-red-50 text-red-700 border-red-200",
-    brand: "bg-indigo-50 text-indigo-700 border-indigo-200",
+    neutral: "bg-white/5 text-ink border-white/10",
+    success: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30",
+    warning: "bg-amber-500/10 text-amber-300 border-amber-500/30",
+    danger:  "bg-red-500/10  text-red-300  border-red-500/30",
+    brand:   "bg-indigo-500/15 text-indigo-200 border-indigo-500/30",
   };
   return (
     <span
