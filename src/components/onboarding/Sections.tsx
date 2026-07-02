@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useState, Fragment, type ReactNode } from "react";
 import {
   ArrowRight,
   ArrowLeft,
@@ -764,9 +764,8 @@ export function Section6() {
           { t: "Serveur MCP", d: "Traduit en appel outil", icon: Server },
           { t: "SonarQube", d: "Rend un résultat structuré", icon: Cpu },
         ].map((n, i) => (
-          <>
+          <Fragment key={n.t}>
             <div
-              key={n.t}
               className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur"
             >
               <div className="mb-2 flex items-center gap-2">
@@ -781,7 +780,7 @@ export function Section6() {
                 <ArrowRight className="h-5 w-5 text-white/40" />
               </div>
             )}
-          </>
+          </Fragment>
         ))}
       </div>
 
@@ -855,9 +854,8 @@ export function Section7() {
       <div className="mt-14 overflow-x-auto">
         <div className="flex min-w-[900px] items-stretch gap-3">
           {pipe.map((n, i) => (
-            <>
+            <Fragment key={n.t}>
               <div
-                key={n.t}
                 className="w-40 shrink-0 rounded-xl border border-hairline bg-white p-4 shadow-soft"
               >
                 <div className="eyebrow mb-1">Étape {String(i + 1).padStart(2, "0")}</div>
@@ -869,7 +867,7 @@ export function Section7() {
                   <div className="h-px w-3 bg-gradient-to-r from-indigo-400 to-violet-400" />
                 </div>
               )}
-            </>
+            </Fragment>
           ))}
         </div>
       </div>
