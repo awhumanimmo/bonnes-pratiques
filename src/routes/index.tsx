@@ -1,24 +1,51 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Header, Sidebar, MobileDrawer } from "@/components/onboarding/Nav";
+import {
+  Hero,
+  Section1,
+  Section2,
+  Section3,
+  Section4,
+  Section5,
+  Section6,
+  Section7,
+  Section8,
+  Section9,
+  Footer,
+} from "@/components/onboarding/Sections";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-ink">
+      {/* Skip link for a11y */}
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-ink focus:px-3 focus:py-2 focus:text-sm focus:text-white"
+      >
+        Aller au contenu principal
+      </a>
+      <Header onOpenMenu={() => setMenuOpen(true)} />
+      <MobileDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <Sidebar />
+      <main id="main">
+        <Hero />
+        <Section1 />
+        <Section2 />
+        <Section3 />
+        <Section4 />
+        <Section5 />
+        <Section6 />
+        <Section7 />
+        <Section8 />
+        <Section9 />
+      </main>
+      <Footer />
     </div>
   );
 }
