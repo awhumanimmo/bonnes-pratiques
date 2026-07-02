@@ -255,7 +255,7 @@ export function Section1() {
     { label: "Qualité code", web: "Générique", ide: "Conventions équipe" },
   ];
   return (
-    <Section id="s1">
+    <Section id="s1" num="01">
       <Eyebrow index="Section 01" duration="~5 min">
         Chapitre 01
       </Eyebrow>
@@ -372,7 +372,7 @@ export function Section2() {
   );
   const capped = Math.min(100, total);
   return (
-    <Section id="s2">
+    <Section id="s2" num="02">
       <Eyebrow index="Section 02" duration="~5 min">
         Contexte
       </Eyebrow>
@@ -460,7 +460,7 @@ export function Section2() {
  * ============================================================ */
 export function Section3() {
   return (
-    <Section id="s3">
+    <Section id="s3" num="03">
       <Eyebrow index="Section 03" duration="~5 min">
         Rules
       </Eyebrow>
@@ -578,7 +578,7 @@ function SkillCard({
 
 export function Section4() {
   return (
-    <Section id="s4">
+    <Section id="s4" num="04">
       <Eyebrow index="Section 04" duration="~5 min">
         Skills
       </Eyebrow>
@@ -666,7 +666,7 @@ export function Section5() {
     { need: "Brancher un outil externe", pick: "MCP" },
   ];
   return (
-    <Section id="s5">
+    <Section id="s5" num="05">
       <Eyebrow index="Section 05" duration="~5 min">
         Plugins
       </Eyebrow>
@@ -767,7 +767,7 @@ export function Section5() {
  * ============================================================ */
 export function Section6() {
   return (
-    <Section id="s6" dark>
+    <Section id="s6" num="06" dark>
       <Eyebrow index="Section 06" duration="~7 min">
         <span className="text-white/70">Model Context Protocol</span>
       </Eyebrow>
@@ -860,7 +860,7 @@ export function Section7() {
     { t: "Rapport", d: ".cursor/guideline-review/" },
   ];
   return (
-    <Section id="s7">
+    <Section id="s7" num="07">
       <Eyebrow index="Section 07" duration="~8 min">
         Système d'agents
       </Eyebrow>
@@ -1011,7 +1011,7 @@ export function Section8() {
     { front: "Accepter le diff sans lecture ligne à ligne.", back: "Toujours relire le diff, l'agent se trompe." },
   ];
   return (
-    <Section id="s8">
+    <Section id="s8" num="08">
       <Eyebrow index="Section 08" duration="~5 min">
         Anti-patterns
       </Eyebrow>
@@ -1086,7 +1086,7 @@ export function Section9() {
   }
 
   return (
-    <Section id="s9">
+    <Section id="s9" num="09">
       <Eyebrow index="Section 09" duration="~5 min">
         Quiz final
       </Eyebrow>
