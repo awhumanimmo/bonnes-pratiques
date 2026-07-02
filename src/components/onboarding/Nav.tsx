@@ -59,28 +59,35 @@ export function Header({ onOpenMenu }: { onOpenMenu: () => void }) {
   const progress = useScrollProgress();
   return (
     <header
-      className="fixed inset-x-0 top-0 z-40 border-b border-white/60"
+      className="fixed inset-x-0 top-0 z-40 border-b border-white/5"
       style={{
-        background: "rgba(248, 249, 252, 0.72)",
+        background: "rgba(6, 6, 12, 0.55)",
         backdropFilter: "saturate(180%) blur(14px)",
       }}
     >
       <div className="mx-auto flex h-16 w-full max-w-[1400px] items-center gap-4 px-6 lg:px-10">
         <a href="#hero" className="flex min-w-0 items-center gap-3">
-          <HumanLogo />
-          <span aria-hidden className="hidden h-4 w-px bg-hairline sm:block" />
+          <span
+            aria-hidden
+            className="h-7 w-7 rounded-lg shadow-lg shadow-indigo-500/30"
+            style={{ background: "linear-gradient(135deg,#7C3AED,#22D3EE)" }}
+          />
+          <span className="font-bold tracking-tight uppercase text-sm text-white">
+            Cursor<span className="text-indigo-400">.</span>NET
+          </span>
+          <span aria-hidden className="hidden h-4 w-px bg-white/10 sm:block" />
           <span className="hidden truncate text-sm font-medium text-ink-soft sm:block">
-            Onboarding IA Développeur
+            Onboarding IA · Human
           </span>
         </a>
         <div className="ml-auto flex items-center gap-4">
-          <span className="hidden text-xs font-medium tabular-nums text-ink-soft sm:inline">
-            {Math.round(progress)}%
+          <span className="hidden font-mono text-[11px] tabular-nums text-ink-soft sm:inline">
+            {String(Math.round(progress)).padStart(3, "0")} / 100
           </span>
           <button
             aria-label="Ouvrir le sommaire"
             onClick={onOpenMenu}
-            className="grid h-10 w-10 place-items-center rounded-full border border-hairline bg-white text-ink transition-colors hover:border-ink/30 lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-ink transition-colors hover:border-white/30 lg:hidden"
           >
             <Menu className="h-4 w-4" />
           </button>
@@ -88,11 +95,11 @@ export function Header({ onOpenMenu }: { onOpenMenu: () => void }) {
       </div>
       <div
         aria-hidden
-        className="h-[3px] w-full bg-hairline/50"
+        className="h-[2px] w-full bg-white/5"
       >
         <div
-          className="h-full bg-gradient-brand transition-[width] duration-150"
-          style={{ width: `${progress}%` }}
+          className="h-full transition-[width] duration-150"
+          style={{ width: `${progress}%`, background: "linear-gradient(90deg,#7C3AED,#22D3EE,#EC4899)" }}
         />
       </div>
     </header>
@@ -106,7 +113,7 @@ export function Sidebar() {
       aria-label="Sommaire"
       className="fixed left-6 top-1/2 z-30 hidden -translate-y-1/2 lg:block"
     >
-      <ol className="space-y-1.5">
+      <ol className="space-y-2">
         {SECTIONS.map((s) => {
           const isActive = active === s.id;
           const isSeen = seen.has(s.id) && !isActive;
@@ -114,26 +121,30 @@ export function Sidebar() {
             <li key={s.id}>
               <a
                 href={`#${s.id}`}
-                className="group flex items-center gap-2.5 rounded-full py-1.5 pl-2 pr-3 text-xs font-medium text-ink-soft transition-colors hover:text-ink"
+                className="group flex items-center gap-3 py-1 text-[11px] font-mono uppercase tracking-widest text-ink-soft transition-colors hover:text-ink"
               >
                 <span
-                  className={`grid h-5 w-5 shrink-0 place-items-center rounded-full border text-[10px] font-semibold transition-all ${
-                    isActive
-                      ? "border-transparent bg-gradient-brand text-white"
-                      : isSeen
-                        ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-                        : "border-hairline bg-white"
+                  aria-hidden
+                  className={`block h-px transition-all ${
+                    isActive ? "w-10 bg-gradient-brand" :
+                    isSeen   ? "w-6 bg-emerald-400/70" :
+                               "w-4 bg-white/20"
                   }`}
-                >
-                  {isSeen ? <Check className="h-3 w-3" /> : s.num}
-                </span>
+                />
                 <span
-                  className={`max-w-[160px] truncate transition-opacity ${
-                    isActive ? "text-ink" : "opacity-70 group-hover:opacity-100"
+                  className={`transition-opacity ${
+                    isActive ? "text-white" :
+                    isSeen   ? "text-emerald-300/70" :
+                    "opacity-50 group-hover:opacity-100"
                   }`}
                 >
-                  {s.label}
+                  {s.num}
                 </span>
+                {isActive && (
+                  <span className="max-w-[160px] truncate text-white/80 normal-case tracking-normal">
+                    {s.label}
+                  </span>
+                )}
               </a>
             </li>
           );
@@ -155,16 +166,19 @@ export function MobileDrawer({
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
       <div
-        className="absolute inset-0 bg-ink/40 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
         onClick={onClose}
       />
-      <aside className="absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col bg-surface p-6">
+      <aside
+        className="absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col p-6"
+        style={{ background: "oklch(0.12 0.02 270)" }}
+      >
         <div className="mb-6 flex items-center justify-between">
           <HumanLogo />
           <button
             aria-label="Fermer le sommaire"
             onClick={onClose}
-            className="grid h-10 w-10 place-items-center rounded-full border border-hairline bg-white"
+            className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5"
           >
             <X className="h-4 w-4" />
           </button>
@@ -181,17 +195,17 @@ export function MobileDrawer({
                   onClick={onClose}
                   className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium ${
                     isActive
-                      ? "bg-white shadow-soft text-ink"
-                      : "text-ink-soft hover:bg-white/60"
+                      ? "bg-white/10 text-white"
+                      : "text-ink-soft hover:bg-white/5"
                   }`}
                 >
                   <span
-                    className={`grid h-7 w-7 shrink-0 place-items-center rounded-full border text-[11px] font-semibold ${
+                    className={`grid h-7 w-7 shrink-0 place-items-center rounded-full border text-[11px] font-mono ${
                       isActive
                         ? "border-transparent bg-gradient-brand text-white"
                         : isSeen
-                          ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-                          : "border-hairline bg-white"
+                          ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
+                          : "border-white/10 bg-white/5"
                     }`}
                   >
                     {isSeen ? <Check className="h-3.5 w-3.5" /> : s.num}

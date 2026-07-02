@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Header, Sidebar, MobileDrawer } from "@/components/onboarding/Nav";
+import { useRevealOnScroll } from "@/components/onboarding/useReveal";
 import {
   Hero,
   Section1,
@@ -21,6 +22,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
+  useRevealOnScroll();
   return (
     <div className="min-h-screen bg-background text-ink">
       {/* Skip link for a11y */}

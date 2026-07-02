@@ -81,73 +81,93 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="scroll-mt-section relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32"
+      className="scroll-mt-section relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-32 pb-20"
     >
-      {/* ambient gradient blobs */}
+      {/* Ambient layers */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid opacity-60" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-noise opacity-40 mix-blend-overlay" />
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-32 top-24 h-[420px] w-[420px] rounded-full opacity-40 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(124,58,237,0.35), transparent 60%)",
-        }}
+        className="pointer-events-none absolute left-1/2 top-1/3 h-[800px] w-[800px] -translate-x-1/2 rounded-full blur-[130px] animate-blob"
+        style={{ background: "radial-gradient(circle, rgba(124,58,237,0.35), transparent 60%)" }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-40 top-40 h-[500px] w-[500px] rounded-full opacity-40 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(79,70,229,0.35), transparent 60%)",
-        }}
+        className="pointer-events-none absolute right-1/4 bottom-1/4 h-[500px] w-[500px] rounded-full blur-[110px] animate-blob"
+        style={{ background: "radial-gradient(circle, rgba(34,211,238,0.22), transparent 60%)", animationDelay: "-6s" }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-40"
+        style={{ background: "linear-gradient(to bottom, transparent, var(--background))" }}
       />
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 lg:px-10">
-        <div className="animate-fade-up">
-          <Eyebrow index="Parcours 00">Introduction</Eyebrow>
-          <h1 className="mt-6 text-[52px] font-bold leading-[1.02] tracking-tight sm:text-[72px] lg:text-[88px]">
-            De l'IA web
-            <br />
-            <span className="text-gradient-brand">à l'agent de code.</span>
-          </h1>
-          <p className="mt-8 max-w-2xl text-[19px] leading-relaxed text-ink-soft">
-            Parcours interactif · ~45 min · Aucune connexion requise.
-            <br />
-            Vous utilisez déjà l'IA, mais probablement au mauvais endroit.
-          </p>
-          <div className="mt-6 flex flex-wrap items-center gap-2 text-[13px] text-ink-soft">
-            <span className="rounded-full border border-hairline bg-white px-3 py-1 font-medium">
-              .NET
-            </span>
-            <span className="rounded-full border border-hairline bg-white px-3 py-1 font-medium">
-              C#
-            </span>
-            <span className="rounded-full border border-hairline bg-white px-3 py-1 font-medium">
-              HTML
-            </span>
-            <span className="rounded-full border border-hairline bg-white px-3 py-1 font-medium">
-              CSS
-            </span>
-          </div>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a href="#s1">
-              <ButtonPrimary>Commencer le parcours</ButtonPrimary>
-            </a>
-            <ButtonSecondary onClick={() => document.getElementById("s9")?.scrollIntoView()}>
-              Aller au quiz
-            </ButtonSecondary>
-          </div>
+      {/* Floating code panels — parallax feel */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-4 top-24 hidden max-w-[280px] rotate-[-6deg] opacity-70 lg:block xl:left-16"
+        style={{ transform: "rotate(-6deg) translateY(0)" }}
+      >
+        <ChatWebMock />
+      </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-4 bottom-24 hidden max-w-[360px] rotate-[5deg] opacity-80 lg:block xl:right-16"
+      >
+        <IDEMock />
+      </div>
+
+      <div className="relative z-10 max-w-5xl text-center animate-fade-up">
+        <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-1.5 backdrop-blur-md">
+          <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
+          <span className="font-mono text-[11px] font-bold uppercase tracking-[0.24em] text-indigo-300">
+            Onboarding · 45 min · .NET / C#
+          </span>
+        </span>
+
+        <h1 className="mt-8 text-[56px] font-black leading-[0.9] tracking-tighter sm:text-[88px] lg:text-[120px]">
+          <span className="block bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
+            DE L'IA WEB
+          </span>
+          <span className="block text-gradient-brand italic">
+            à l'agent de code.
+          </span>
+        </h1>
+
+        <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
+          Vous utilisez déjà l'IA. Probablement au{" "}
+          <span className="text-white/90 font-medium">mauvais endroit</span>.
+          Neuf sections, un quiz, zéro connexion — pour passer du chat éphémère
+          à l'agent qui connaît votre repo.
+        </p>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <a href="#s1">
+            <ButtonPrimary>Commencer le parcours</ButtonPrimary>
+          </a>
+          <ButtonSecondary onClick={() => document.getElementById("s9")?.scrollIntoView()}>
+            Aller au quiz
+          </ButtonSecondary>
         </div>
 
-        {/* Visual split */}
-        <div className="relative mt-20 grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
-          <ChatWebMock />
-          <div className="hidden justify-center lg:flex">
-            <div className="grid h-14 w-14 place-items-center rounded-full bg-gradient-brand text-white shadow-raised">
-              <ArrowRight className="h-6 w-6" />
-            </div>
-          </div>
-          <IDEMock />
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-widest text-ink-soft">
+          {["dotnet", "c#", "html", "css", "cursor", "MCP"].map((t) => (
+            <span
+              key={t}
+              className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1"
+            >
+              {t}
+            </span>
+          ))}
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-3 sm:flex">
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink-soft/60">
+          scroll
+        </span>
+        <div className="h-16 w-px bg-gradient-to-b from-indigo-400/70 to-transparent" />
       </div>
     </section>
   );
@@ -155,7 +175,7 @@ export function Hero() {
 
 function ChatWebMock() {
   return (
-    <div className="rounded-2xl border border-hairline bg-white p-5 shadow-soft">
+    <div className="rounded-2xl border border-hairline bg-surface-raised p-5 shadow-soft">
       <div className="mb-4 flex items-center gap-2 text-xs text-ink-soft">
         <MessageSquare className="h-3.5 w-3.5" />
         <span className="font-mono">chat.web / session éphémère</span>
@@ -167,7 +187,7 @@ function ChatWebMock() {
         <div className="ml-auto max-w-[85%] rounded-2xl bg-gradient-brand px-4 py-2.5 text-sm text-white">
           public User GetUser(int id) &#123; ... &#125;
         </div>
-        <div className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-[12px] text-amber-900">
+        <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-[12px] text-amber-200">
           Hors conventions équipe. Aucun accès au code réel.
         </div>
       </div>
@@ -180,9 +200,9 @@ function IDEMock() {
     <div className="overflow-hidden rounded-2xl border border-hairline bg-ink shadow-raised">
       <div className="flex items-center gap-2 border-b border-white/10 px-4 py-2.5">
         <div className="flex gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-surface-raised/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-surface-raised/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-surface-raised/15" />
         </div>
         <span className="ml-2 font-mono text-[11px] text-white/50">
           UserService.cs · agent
@@ -200,12 +220,12 @@ function IDEMock() {
         : Result.Ok(user);
 }`}
         </pre>
-        <div className="space-y-2 bg-white/[0.02] p-3">
+        <div className="space-y-2 bg-surface-raised/[0.02] p-3">
           <div className="flex items-center gap-1.5 text-[11px] font-semibold text-white/70">
             <Sparkles className="h-3 w-3 text-indigo-300" />
             Agent IA
           </div>
-          <div className="rounded-md bg-white/5 p-2 text-[11px] text-white/70">
+          <div className="rounded-md bg-surface-raised/5 p-2 text-[11px] text-white/70">
             @UserService.cs
           </div>
           <div className="rounded-md bg-emerald-500/10 p-2 text-[11px] text-emerald-300">
@@ -235,7 +255,7 @@ export function Section1() {
     { label: "Qualité code", web: "Générique", ide: "Conventions équipe" },
   ];
   return (
-    <Section id="s1">
+    <Section id="s1" num="01">
       <Eyebrow index="Section 01" duration="~5 min">
         Chapitre 01
       </Eyebrow>
@@ -246,7 +266,7 @@ export function Section1() {
         repo.
       </SectionLead>
 
-      <div className="mt-14 overflow-hidden rounded-2xl border border-hairline bg-white shadow-soft">
+      <div className="mt-14 overflow-hidden rounded-2xl border border-hairline bg-surface-raised shadow-soft">
         <div className="grid grid-cols-3 border-b border-hairline bg-ink/[0.02] px-6 py-4 text-[13px] font-semibold uppercase tracking-wider text-ink-soft">
           <span />
           <span className="flex items-center gap-2">
@@ -271,7 +291,7 @@ export function Section1() {
       </div>
 
       {/* Toggle comparateur */}
-      <div className="mt-14 rounded-2xl border border-hairline bg-white p-6 shadow-soft sm:p-8">
+      <div className="mt-14 rounded-2xl border border-hairline bg-surface-raised p-6 shadow-soft sm:p-8">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <div>
             <div className="eyebrow mb-1">Même prompt</div>
@@ -283,7 +303,7 @@ export function Section1() {
             <button
               onClick={() => setAfter(false)}
               className={`rounded-full px-4 py-1.5 transition-all ${
-                !after ? "bg-white shadow-soft text-ink" : "text-ink-soft"
+                !after ? "bg-surface-raised shadow-soft text-ink" : "text-ink-soft"
               }`}
             >
               Avant · chat web
@@ -352,7 +372,7 @@ export function Section2() {
   );
   const capped = Math.min(100, total);
   return (
-    <Section id="s2">
+    <Section id="s2" num="02">
       <Eyebrow index="Section 02" duration="~5 min">
         Contexte
       </Eyebrow>
@@ -365,7 +385,7 @@ export function Section2() {
 
       <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_1fr]">
         {/* Auditorium metaphor */}
-        <div className="rounded-2xl border border-hairline bg-white p-6 shadow-soft">
+        <div className="rounded-2xl border border-hairline bg-surface-raised p-6 shadow-soft">
           <div className="eyebrow mb-4">Analogie</div>
           <div className="grid grid-cols-10 gap-1.5">
             {Array.from({ length: 60 }).map((_, i) => {
@@ -386,7 +406,7 @@ export function Section2() {
           </p>
         </div>
         {/* Budget gauge */}
-        <div className="rounded-2xl border border-hairline bg-white p-6 shadow-soft">
+        <div className="rounded-2xl border border-hairline bg-surface-raised p-6 shadow-soft">
           <div className="mb-4 flex items-baseline justify-between">
             <div className="eyebrow">Budget contexte</div>
             <div className="text-3xl font-bold tabular-nums">
@@ -415,7 +435,7 @@ export function Section2() {
             ))}
           </div>
           {total > 100 && (
-            <div className="mt-4 flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-[13px] text-red-700">
+            <div className="mt-4 flex items-center gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-[13px] text-red-300">
               <AlertTriangle className="h-4 w-4" />
               Contexte saturé — l'agent oublie le début.
             </div>
@@ -440,7 +460,7 @@ export function Section2() {
  * ============================================================ */
 export function Section3() {
   return (
-    <Section id="s3">
+    <Section id="s3" num="03">
       <Eyebrow index="Section 03" duration="~5 min">
         Rules
       </Eyebrow>
@@ -530,7 +550,7 @@ function SkillCard({
 }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="overflow-hidden rounded-2xl border border-hairline bg-white shadow-soft transition-all hover:shadow-raised">
+    <div className="overflow-hidden rounded-2xl border border-hairline bg-surface-raised shadow-soft transition-all hover:shadow-raised">
       <button
         onClick={() => setOpen((o) => !o)}
         className="flex w-full items-start justify-between gap-4 p-6 text-left"
@@ -558,7 +578,7 @@ function SkillCard({
 
 export function Section4() {
   return (
-    <Section id="s4">
+    <Section id="s4" num="04">
       <Eyebrow index="Section 04" duration="~5 min">
         Skills
       </Eyebrow>
@@ -604,8 +624,8 @@ export function Section4() {
             { n: "2", t: "review-guidelines", d: "Passe la PR au filtre équipe." },
             { n: "3", t: "release-notes", d: "Récupère commits + Jira." },
           ].map((s) => (
-            <div key={s.n} className="rounded-xl border border-amber-200/50 bg-white/50 p-4">
-              <div className="mb-2 text-xs font-bold text-amber-700">
+            <div key={s.n} className="rounded-xl border border-amber-500/30 bg-white/[0.04] p-4">
+              <div className="mb-2 text-xs font-bold text-amber-300">
                 Étape {s.n}
               </div>
               <div className="font-mono text-[13px] font-semibold text-ink">
@@ -646,7 +666,7 @@ export function Section5() {
     { need: "Brancher un outil externe", pick: "MCP" },
   ];
   return (
-    <Section id="s5">
+    <Section id="s5" num="05">
       <Eyebrow index="Section 05" duration="~5 min">
         Plugins
       </Eyebrow>
@@ -656,8 +676,8 @@ export function Section5() {
         installable. Rien à voir avec une extension VS Code.
       </SectionLead>
 
-      <div className="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-4">
-        <div className="flex items-start gap-3 text-[14px] text-amber-900">
+      <div className="mt-8 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4">
+        <div className="flex items-start gap-3 text-[14px] text-amber-200">
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
           <span>
             <strong>Attention :</strong> un plugin Cursor n'est pas une extension VS
@@ -681,7 +701,7 @@ export function Section5() {
                 zIndex: layers.length - i,
               }}
             >
-              <div className="rounded-[11px] bg-white px-5 py-4">
+              <div className="rounded-[11px] bg-surface-raised px-5 py-4">
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-sm font-semibold text-ink">
                     {l.name}
@@ -694,7 +714,7 @@ export function Section5() {
           ))}
         </div>
         <div>
-          <div className="rounded-2xl border border-hairline bg-white p-6 shadow-soft">
+          <div className="rounded-2xl border border-hairline bg-surface-raised p-6 shadow-soft">
             <div className="mb-4 flex items-center gap-2">
               <Badge tone="brand">Exemple</Badge>
               <span className="text-sm font-medium text-ink">
@@ -708,7 +728,7 @@ export function Section5() {
             </p>
           </div>
 
-          <div className="mt-6 overflow-hidden rounded-2xl border border-hairline bg-white shadow-soft">
+          <div className="mt-6 overflow-hidden rounded-2xl border border-hairline bg-surface-raised shadow-soft">
             <div className="grid grid-cols-2 border-b border-hairline bg-ink/[0.02] px-5 py-3 text-[12px] font-semibold uppercase tracking-wider text-ink-soft">
               <span>Besoin</span>
               <span>Piste</span>
@@ -747,7 +767,7 @@ export function Section5() {
  * ============================================================ */
 export function Section6() {
   return (
-    <Section id="s6" dark>
+    <Section id="s6" num="06" dark>
       <Eyebrow index="Section 06" duration="~7 min">
         <span className="text-white/70">Model Context Protocol</span>
       </Eyebrow>
@@ -766,7 +786,7 @@ export function Section6() {
         ].map((n, i) => (
           <Fragment key={n.t}>
             <div
-              className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur"
+              className="rounded-2xl border border-white/10 bg-surface-raised/[0.04] p-5 backdrop-blur"
             >
               <div className="mb-2 flex items-center gap-2">
                 <n.icon className="h-4 w-4 text-indigo-300" />
@@ -840,7 +860,7 @@ export function Section7() {
     { t: "Rapport", d: ".cursor/guideline-review/" },
   ];
   return (
-    <Section id="s7">
+    <Section id="s7" num="07">
       <Eyebrow index="Section 07" duration="~8 min">
         Système d'agents
       </Eyebrow>
@@ -856,7 +876,7 @@ export function Section7() {
           {pipe.map((n, i) => (
             <Fragment key={n.t}>
               <div
-                className="w-40 shrink-0 rounded-xl border border-hairline bg-white p-4 shadow-soft"
+                className="w-40 shrink-0 rounded-xl border border-hairline bg-surface-raised p-4 shadow-soft"
               >
                 <div className="eyebrow mb-1">Étape {String(i + 1).padStart(2, "0")}</div>
                 <div className="font-mono text-[13px] font-semibold text-ink">{n.t}</div>
@@ -881,7 +901,7 @@ export function Section7() {
       </HumanCallout>
 
       {/* Sub visual: PR review */}
-      <div className="mt-10 overflow-hidden rounded-2xl border border-hairline bg-white shadow-soft">
+      <div className="mt-10 overflow-hidden rounded-2xl border border-hairline bg-surface-raised shadow-soft">
         <div className="flex items-center gap-3 border-b border-hairline bg-ink/[0.02] px-6 py-4">
           <GitPullRequest className="h-5 w-5 text-indigo-500" />
           <div className="min-w-0">
@@ -941,7 +961,7 @@ function FlipCard({ front, back }: { front: string; back: string }) {
       >
         {/* front */}
         <div
-          className="absolute inset-0 flex flex-col justify-between rounded-2xl border border-hairline bg-white p-5 shadow-soft"
+          className="absolute inset-0 flex flex-col justify-between rounded-2xl border border-hairline bg-surface-raised p-5 shadow-soft"
           style={{ backfaceVisibility: "hidden" }}
         >
           <div className="flex items-center gap-2">
@@ -951,14 +971,14 @@ function FlipCard({ front, back }: { front: string; back: string }) {
             >
               <X className="h-4 w-4" />
             </span>
-            <span className="eyebrow text-red-700">Erreur</span>
+            <span className="eyebrow text-red-300">Erreur</span>
           </div>
           <p className="text-[15px] font-medium text-ink">{front}</p>
           <span className="text-[11px] text-ink-soft">Cliquez pour voir le réflexe →</span>
         </div>
         {/* back */}
         <div
-          className="absolute inset-0 flex flex-col justify-between rounded-2xl border border-emerald-200 bg-emerald-50 p-5 shadow-soft"
+          className="absolute inset-0 flex flex-col justify-between rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-5 shadow-soft"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
@@ -971,10 +991,10 @@ function FlipCard({ front, back }: { front: string; back: string }) {
             >
               <Check className="h-4 w-4" />
             </span>
-            <span className="eyebrow text-emerald-700">Bon réflexe</span>
+            <span className="eyebrow text-emerald-300">Bon réflexe</span>
           </div>
           <p className="text-[15px] font-medium text-ink">{back}</p>
-          <span className="text-[11px] text-emerald-700/70">Cliquez pour revenir</span>
+          <span className="text-[11px] text-emerald-300/70">Cliquez pour revenir</span>
         </div>
       </div>
     </button>
@@ -991,7 +1011,7 @@ export function Section8() {
     { front: "Accepter le diff sans lecture ligne à ligne.", back: "Toujours relire le diff, l'agent se trompe." },
   ];
   return (
-    <Section id="s8">
+    <Section id="s8" num="08">
       <Eyebrow index="Section 08" duration="~5 min">
         Anti-patterns
       </Eyebrow>
@@ -1066,7 +1086,7 @@ export function Section9() {
   }
 
   return (
-    <Section id="s9">
+    <Section id="s9" num="09">
       <Eyebrow index="Section 09" duration="~5 min">
         Quiz final
       </Eyebrow>
@@ -1076,7 +1096,7 @@ export function Section9() {
       </SectionLead>
 
       {!done ? (
-        <div className="mt-12 rounded-3xl border border-hairline bg-white p-8 shadow-raised sm:p-12">
+        <div className="mt-12 rounded-3xl border border-hairline bg-surface-raised p-8 shadow-raised sm:p-12">
           {/* Progress dots */}
           <div className="mb-8 flex items-center gap-1.5">
             {QUIZ.map((_, i) => (
@@ -1113,11 +1133,11 @@ export function Section9() {
                       ? "reveal"
                       : "muted";
               const styles: Record<string, string> = {
-                idle: "border-hairline bg-white hover:border-ink/30 hover:bg-ink/[0.02]",
-                right: "border-emerald-300 bg-emerald-50 text-emerald-900",
-                wrong: "border-red-300 bg-red-50 text-red-900",
-                reveal: "border-emerald-300 bg-emerald-50/60 text-emerald-900",
-                muted: "border-hairline bg-white opacity-60",
+                idle: "border-hairline bg-surface-raised hover:border-ink/30 hover:bg-ink/[0.02]",
+                right: "border-emerald-500/40 bg-emerald-500/15 text-emerald-200",
+                wrong: "border-red-500/40 bg-red-500/15 text-red-200",
+                reveal: "border-emerald-500/40 bg-emerald-500/15/60 text-emerald-200",
+                muted: "border-hairline bg-surface-raised opacity-60",
               };
               return (
                 <button
@@ -1142,8 +1162,8 @@ export function Section9() {
             <div
               className={`mt-6 rounded-xl border px-4 py-3 text-[14px] ${
                 answers[step] === cur.correct
-                  ? "border-emerald-200 bg-emerald-50 text-emerald-900"
-                  : "border-red-200 bg-red-50 text-red-900"
+                  ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-200"
+                  : "border-red-500/30 bg-red-500/10 text-red-200"
               }`}
             >
               <strong>
@@ -1192,7 +1212,7 @@ export function Section9() {
 function QuizResult({ score, onReset }: { score: number; onReset: () => void }) {
   const passed = score >= 8;
   return (
-    <div className="relative mt-12 overflow-hidden rounded-3xl border border-hairline bg-white p-10 text-center shadow-raised sm:p-16">
+    <div className="relative mt-12 overflow-hidden rounded-3xl border border-hairline bg-surface-raised p-10 text-center shadow-raised sm:p-16">
       {passed && (
         <div
           aria-hidden
