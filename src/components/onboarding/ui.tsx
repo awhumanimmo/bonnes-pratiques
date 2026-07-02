@@ -65,7 +65,7 @@ export function ButtonSecondary({ children, className = "", ...props }: BtnProps
   return (
     <button
       {...props}
-      className={`inline-flex items-center gap-2 rounded-full border border-hairline bg-surface-raised px-5 py-3 text-[15px] font-medium text-ink transition-colors hover:bg-white hover:border-ink/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo ${className}`}
+      className={`inline-flex items-center gap-2 rounded-full border border-hairline bg-surface-raised px-5 py-3 text-[15px] font-medium text-ink transition-colors hover:bg-surface-raised hover:border-ink/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo ${className}`}
     >
       {children}
     </button>
@@ -109,7 +109,7 @@ export function KeyTakeaway({
     <aside
       className={`mt-10 rounded-2xl border p-6 sm:p-7 ${
         dark
-          ? "border-white/10 bg-white/5 backdrop-blur"
+          ? "border-white/10 bg-surface-raised/5 backdrop-blur"
           : "border-hairline bg-surface-raised shadow-soft"
       }`}
     >
@@ -186,9 +186,9 @@ export function CodeBlock({
     >
       <div className="flex items-center justify-between border-b border-white/5 px-4 py-2.5">
         <div className="flex items-center gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-surface-raised/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-surface-raised/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-surface-raised/15" />
         </div>
         {filename && (
           <span className="font-mono text-[11px] text-white/50">{filename}</span>
@@ -220,7 +220,7 @@ export function Chip({
       className={`rounded-full border px-3.5 py-1.5 text-sm font-medium transition-all ${
         active
           ? "border-transparent bg-gradient-brand text-white shadow-soft"
-          : "border-hairline bg-white text-ink hover:border-ink/30"
+          : "border-hairline bg-surface-raised text-ink hover:border-ink/30"
       }`}
     >
       {children}

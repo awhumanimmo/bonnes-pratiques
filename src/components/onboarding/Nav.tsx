@@ -80,7 +80,7 @@ export function Header({ onOpenMenu }: { onOpenMenu: () => void }) {
           <button
             aria-label="Ouvrir le sommaire"
             onClick={onOpenMenu}
-            className="grid h-10 w-10 place-items-center rounded-full border border-hairline bg-white text-ink transition-colors hover:border-ink/30 lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full border border-hairline bg-surface-raised text-ink transition-colors hover:border-ink/30 lg:hidden"
           >
             <Menu className="h-4 w-4" />
           </button>
@@ -122,7 +122,7 @@ export function Sidebar() {
                       ? "border-transparent bg-gradient-brand text-white"
                       : isSeen
                         ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-                        : "border-hairline bg-white"
+                        : "border-hairline bg-surface-raised"
                   }`}
                 >
                   {isSeen ? <Check className="h-3 w-3" /> : s.num}
@@ -164,7 +164,7 @@ export function MobileDrawer({
           <button
             aria-label="Fermer le sommaire"
             onClick={onClose}
-            className="grid h-10 w-10 place-items-center rounded-full border border-hairline bg-white"
+            className="grid h-10 w-10 place-items-center rounded-full border border-hairline bg-surface-raised"
           >
             <X className="h-4 w-4" />
           </button>
@@ -181,8 +181,8 @@ export function MobileDrawer({
                   onClick={onClose}
                   className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium ${
                     isActive
-                      ? "bg-white shadow-soft text-ink"
-                      : "text-ink-soft hover:bg-white/60"
+                      ? "bg-surface-raised shadow-soft text-ink"
+                      : "text-ink-soft hover:bg-surface-raised/60"
                   }`}
                 >
                   <span
@@ -191,7 +191,7 @@ export function MobileDrawer({
                         ? "border-transparent bg-gradient-brand text-white"
                         : isSeen
                           ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-                          : "border-hairline bg-white"
+                          : "border-hairline bg-surface-raised"
                     }`}
                   >
                     {isSeen ? <Check className="h-3.5 w-3.5" /> : s.num}
