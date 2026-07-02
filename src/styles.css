@@ -78,26 +78,26 @@
 
 :root {
   --radius: 0.625rem;
-  /* Neutral surface tuned to #F8F9FC */
-  --background: oklch(0.982 0.005 260);
-  --foreground: oklch(0.19 0.04 264);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.19 0.04 264);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.19 0.04 264);
-  --primary: oklch(0.5 0.22 277); /* indigo #4F46E5 */
+  /* Obsidian dark surface — near #050505 */
+  --background: oklch(0.14 0.01 270);
+  --foreground: oklch(0.96 0.01 260);
+  --card: oklch(0.18 0.015 270);
+  --card-foreground: oklch(0.96 0.01 260);
+  --popover: oklch(0.18 0.015 270);
+  --popover-foreground: oklch(0.96 0.01 260);
+  --primary: oklch(0.62 0.22 300); /* violet */
   --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.55 0.03 257);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.22 0.02 270);
+  --secondary-foreground: oklch(0.96 0.01 260);
+  --muted: oklch(0.22 0.02 270);
+  --muted-foreground: oklch(0.72 0.02 260);
+  --accent: oklch(0.22 0.02 270);
+  --accent-foreground: oklch(0.96 0.01 260);
   --destructive: oklch(0.63 0.22 27);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.92 0.012 255);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.5 0.22 277);
+  --border: oklch(1 0 0 / 0.08);
+  --input: oklch(1 0 0 / 0.12);
+  --ring: oklch(0.72 0.2 300);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -112,24 +112,25 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
 
-  /* Onboarding brand tokens */
-  --ink: oklch(0.19 0.04 264);            /* #0F172A */
-  --ink-soft: oklch(0.55 0.03 257);       /* #64748B */
-  --surface: oklch(0.982 0.005 260);      /* #F8F9FC */
-  --surface-raised: oklch(1 0 0);         /* #FFFFFF */
-  --hairline: oklch(0.92 0.012 255);
-  --indigo: oklch(0.5 0.22 277);          /* #4F46E5 */
-  --violet: oklch(0.55 0.25 302);         /* #7C3AED */
-  --success: oklch(0.72 0.17 162);        /* #10B981 */
-  --danger: oklch(0.66 0.22 27);          /* #EF4444 */
-  --human-border: oklch(0.75 0.14 82);    /* #D4A017 */
-  --human-bg: oklch(0.975 0.03 92);       /* #FFF8E7 */
-  --code-bg: oklch(0.26 0.04 264);        /* #1E293B */
+  /* Onboarding brand tokens — obsidian */
+  --ink: oklch(0.97 0.005 260);           /* near-white text */
+  --ink-soft: oklch(0.72 0.02 260);       /* slate-400 */
+  --surface: oklch(0.14 0.01 270);        /* page bg */
+  --surface-raised: oklch(1 0 0 / 0.04);  /* glass panel */
+  --hairline: oklch(1 0 0 / 0.08);
+  --indigo: oklch(0.68 0.22 285);         /* electric indigo */
+  --violet: oklch(0.65 0.26 305);         /* purple */
+  --cyan: oklch(0.82 0.14 210);           /* accent cyan */
+  --success: oklch(0.75 0.17 162);
+  --danger: oklch(0.68 0.22 22);
+  --human-border: oklch(0.82 0.15 82);
+  --human-bg: oklch(0.4 0.09 82 / 0.14);
+  --code-bg: oklch(0.11 0.01 270);
 
   --gradient-brand: linear-gradient(135deg, var(--indigo), var(--violet));
-  --gradient-dark: linear-gradient(160deg, #0F172A 0%, #1E1B4B 100%);
-  --shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.08);
-  --shadow-raised: 0 1px 2px rgba(15, 23, 42, 0.05), 0 20px 40px -20px rgba(79, 70, 229, 0.18);
+  --gradient-dark: linear-gradient(160deg, oklch(0.08 0.01 270) 0%, oklch(0.16 0.04 300) 100%);
+  --shadow-soft: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -12px rgba(0,0,0,0.6);
+  --shadow-raised: 0 2px 4px rgba(0,0,0,0.4), 0 30px 60px -20px rgba(124,58,237,0.35);
 }
 
 .dark {
@@ -178,6 +179,11 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(ellipse 90% 60% at 20% -10%, rgba(124,58,237,0.18), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 100% 20%, rgba(56,189,248,0.10), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 50% 110%, rgba(236,72,153,0.10), transparent 60%);
+    background-attachment: fixed;
   }
 
   html {
@@ -228,6 +234,23 @@
   scroll-margin-top: 96px;
 }
 
+@utility bg-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
+}
+
+@utility bg-noise {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.12);
+}
+
 @keyframes onb-fade-up {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
@@ -236,9 +259,40 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
+@keyframes onb-blob {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%     { transform: translate(20px,-30px) scale(1.08); }
+}
+@keyframes onb-caret {
+  0%,100% { opacity: 0; }
+  50%     { opacity: 1; }
+}
 @utility animate-fade-up {
   animation: onb-fade-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 @utility animate-fade-in-slow {
   animation: onb-fade-in 0.9s ease-out both;
+}
+@utility animate-blob {
+  animation: onb-blob 14s ease-in-out infinite;
+}
+@utility animate-caret {
+  animation: onb-caret 1s steps(1) infinite;
+}
+
+/* Scroll-reveal: elements start hidden, .is-visible fades them up.
+   IntersectionObserver toggles the class from JS. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.2,0.7,0.2,1),
+              transform 0.8s cubic-bezier(0.2,0.7,0.2,1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
 }
