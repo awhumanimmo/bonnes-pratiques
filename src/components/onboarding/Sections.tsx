@@ -187,7 +187,7 @@ function ChatWebMock() {
         <div className="ml-auto max-w-[85%] rounded-2xl bg-gradient-brand px-4 py-2.5 text-sm text-white">
           public User GetUser(int id) &#123; ... &#125;
         </div>
-        <div className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-[12px] text-amber-900">
+        <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-[12px] text-amber-200">
           Hors conventions équipe. Aucun accès au code réel.
         </div>
       </div>
@@ -435,7 +435,7 @@ export function Section2() {
             ))}
           </div>
           {total > 100 && (
-            <div className="mt-4 flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-[13px] text-red-700">
+            <div className="mt-4 flex items-center gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-[13px] text-red-300">
               <AlertTriangle className="h-4 w-4" />
               Contexte saturé — l'agent oublie le début.
             </div>
@@ -624,8 +624,8 @@ export function Section4() {
             { n: "2", t: "review-guidelines", d: "Passe la PR au filtre équipe." },
             { n: "3", t: "release-notes", d: "Récupère commits + Jira." },
           ].map((s) => (
-            <div key={s.n} className="rounded-xl border border-amber-200/50 bg-surface-raised/50 p-4">
-              <div className="mb-2 text-xs font-bold text-amber-700">
+            <div key={s.n} className="rounded-xl border border-amber-500/30 bg-white/[0.04] p-4">
+              <div className="mb-2 text-xs font-bold text-amber-300">
                 Étape {s.n}
               </div>
               <div className="font-mono text-[13px] font-semibold text-ink">
@@ -676,8 +676,8 @@ export function Section5() {
         installable. Rien à voir avec une extension VS Code.
       </SectionLead>
 
-      <div className="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-4">
-        <div className="flex items-start gap-3 text-[14px] text-amber-900">
+      <div className="mt-8 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4">
+        <div className="flex items-start gap-3 text-[14px] text-amber-200">
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
           <span>
             <strong>Attention :</strong> un plugin Cursor n'est pas une extension VS
@@ -971,14 +971,14 @@ function FlipCard({ front, back }: { front: string; back: string }) {
             >
               <X className="h-4 w-4" />
             </span>
-            <span className="eyebrow text-red-700">Erreur</span>
+            <span className="eyebrow text-red-300">Erreur</span>
           </div>
           <p className="text-[15px] font-medium text-ink">{front}</p>
           <span className="text-[11px] text-ink-soft">Cliquez pour voir le réflexe →</span>
         </div>
         {/* back */}
         <div
-          className="absolute inset-0 flex flex-col justify-between rounded-2xl border border-emerald-200 bg-emerald-50 p-5 shadow-soft"
+          className="absolute inset-0 flex flex-col justify-between rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-5 shadow-soft"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
@@ -991,10 +991,10 @@ function FlipCard({ front, back }: { front: string; back: string }) {
             >
               <Check className="h-4 w-4" />
             </span>
-            <span className="eyebrow text-emerald-700">Bon réflexe</span>
+            <span className="eyebrow text-emerald-300">Bon réflexe</span>
           </div>
           <p className="text-[15px] font-medium text-ink">{back}</p>
-          <span className="text-[11px] text-emerald-700/70">Cliquez pour revenir</span>
+          <span className="text-[11px] text-emerald-300/70">Cliquez pour revenir</span>
         </div>
       </div>
     </button>
@@ -1134,9 +1134,9 @@ export function Section9() {
                       : "muted";
               const styles: Record<string, string> = {
                 idle: "border-hairline bg-surface-raised hover:border-ink/30 hover:bg-ink/[0.02]",
-                right: "border-emerald-300 bg-emerald-50 text-emerald-900",
-                wrong: "border-red-300 bg-red-50 text-red-900",
-                reveal: "border-emerald-300 bg-emerald-50/60 text-emerald-900",
+                right: "border-emerald-500/40 bg-emerald-500/15 text-emerald-200",
+                wrong: "border-red-500/40 bg-red-500/15 text-red-200",
+                reveal: "border-emerald-500/40 bg-emerald-500/15/60 text-emerald-200",
                 muted: "border-hairline bg-surface-raised opacity-60",
               };
               return (
@@ -1162,8 +1162,8 @@ export function Section9() {
             <div
               className={`mt-6 rounded-xl border px-4 py-3 text-[14px] ${
                 answers[step] === cur.correct
-                  ? "border-emerald-200 bg-emerald-50 text-emerald-900"
-                  : "border-red-200 bg-red-50 text-red-900"
+                  ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-200"
+                  : "border-red-500/30 bg-red-500/10 text-red-200"
               }`}
             >
               <strong>
