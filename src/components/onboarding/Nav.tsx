@@ -101,9 +101,6 @@ export function Header({ onOpenMenu }: { onOpenMenu: () => void }) {
           className="h-full transition-[width] duration-150"
           style={{ width: `${progress}%`, background: "linear-gradient(90deg,#7C3AED,#22D3EE,#EC4899)" }}
         />
-        <span aria-hidden style={{ display: "none" }}
-          style={{ width: `${progress}%` }}
-        />
       </div>
     </header>
   );
