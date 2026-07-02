@@ -166,16 +166,19 @@ export function MobileDrawer({
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
       <div
-        className="absolute inset-0 bg-ink/40 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
         onClick={onClose}
       />
-      <aside className="absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col bg-surface p-6">
+      <aside
+        className="absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col p-6"
+        style={{ background: "oklch(0.12 0.02 270)" }}
+      >
         <div className="mb-6 flex items-center justify-between">
           <HumanLogo />
           <button
             aria-label="Fermer le sommaire"
             onClick={onClose}
-            className="grid h-10 w-10 place-items-center rounded-full border border-hairline bg-surface-raised"
+            className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5"
           >
             <X className="h-4 w-4" />
           </button>
@@ -192,17 +195,17 @@ export function MobileDrawer({
                   onClick={onClose}
                   className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium ${
                     isActive
-                      ? "bg-surface-raised shadow-soft text-ink"
-                      : "text-ink-soft hover:bg-surface-raised/60"
+                      ? "bg-white/10 text-white"
+                      : "text-ink-soft hover:bg-white/5"
                   }`}
                 >
                   <span
-                    className={`grid h-7 w-7 shrink-0 place-items-center rounded-full border text-[11px] font-semibold ${
+                    className={`grid h-7 w-7 shrink-0 place-items-center rounded-full border text-[11px] font-mono ${
                       isActive
                         ? "border-transparent bg-gradient-brand text-white"
                         : isSeen
-                          ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-                          : "border-hairline bg-surface-raised"
+                          ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
+                          : "border-white/10 bg-white/5"
                     }`}
                   >
                     {isSeen ? <Check className="h-3.5 w-3.5" /> : s.num}
