@@ -81,73 +81,93 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="scroll-mt-section relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32"
+      className="scroll-mt-section relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-32 pb-20"
     >
-      {/* ambient gradient blobs */}
+      {/* Ambient layers */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid opacity-60" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-noise opacity-40 mix-blend-overlay" />
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-32 top-24 h-[420px] w-[420px] rounded-full opacity-40 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(124,58,237,0.35), transparent 60%)",
-        }}
+        className="pointer-events-none absolute left-1/2 top-1/3 h-[800px] w-[800px] -translate-x-1/2 rounded-full blur-[130px] animate-blob"
+        style={{ background: "radial-gradient(circle, rgba(124,58,237,0.35), transparent 60%)" }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-40 top-40 h-[500px] w-[500px] rounded-full opacity-40 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(79,70,229,0.35), transparent 60%)",
-        }}
+        className="pointer-events-none absolute right-1/4 bottom-1/4 h-[500px] w-[500px] rounded-full blur-[110px] animate-blob"
+        style={{ background: "radial-gradient(circle, rgba(34,211,238,0.22), transparent 60%)", animationDelay: "-6s" }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-40"
+        style={{ background: "linear-gradient(to bottom, transparent, var(--background))" }}
       />
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 lg:px-10">
-        <div className="animate-fade-up">
-          <Eyebrow index="Parcours 00">Introduction</Eyebrow>
-          <h1 className="mt-6 text-[52px] font-bold leading-[1.02] tracking-tight sm:text-[72px] lg:text-[88px]">
-            De l'IA web
-            <br />
-            <span className="text-gradient-brand">à l'agent de code.</span>
-          </h1>
-          <p className="mt-8 max-w-2xl text-[19px] leading-relaxed text-ink-soft">
-            Parcours interactif · ~45 min · Aucune connexion requise.
-            <br />
-            Vous utilisez déjà l'IA, mais probablement au mauvais endroit.
-          </p>
-          <div className="mt-6 flex flex-wrap items-center gap-2 text-[13px] text-ink-soft">
-            <span className="rounded-full border border-hairline bg-surface-raised px-3 py-1 font-medium">
-              .NET
-            </span>
-            <span className="rounded-full border border-hairline bg-surface-raised px-3 py-1 font-medium">
-              C#
-            </span>
-            <span className="rounded-full border border-hairline bg-surface-raised px-3 py-1 font-medium">
-              HTML
-            </span>
-            <span className="rounded-full border border-hairline bg-surface-raised px-3 py-1 font-medium">
-              CSS
-            </span>
-          </div>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a href="#s1">
-              <ButtonPrimary>Commencer le parcours</ButtonPrimary>
-            </a>
-            <ButtonSecondary onClick={() => document.getElementById("s9")?.scrollIntoView()}>
-              Aller au quiz
-            </ButtonSecondary>
-          </div>
+      {/* Floating code panels — parallax feel */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-4 top-24 hidden max-w-[280px] rotate-[-6deg] opacity-70 lg:block xl:left-16"
+        style={{ transform: "rotate(-6deg) translateY(0)" }}
+      >
+        <ChatWebMock />
+      </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-4 bottom-24 hidden max-w-[360px] rotate-[5deg] opacity-80 lg:block xl:right-16"
+      >
+        <IDEMock />
+      </div>
+
+      <div className="relative z-10 max-w-5xl text-center animate-fade-up">
+        <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-1.5 backdrop-blur-md">
+          <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
+          <span className="font-mono text-[11px] font-bold uppercase tracking-[0.24em] text-indigo-300">
+            Onboarding · 45 min · .NET / C#
+          </span>
+        </span>
+
+        <h1 className="mt-8 text-[56px] font-black leading-[0.9] tracking-tighter sm:text-[88px] lg:text-[120px]">
+          <span className="block bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
+            DE L'IA WEB
+          </span>
+          <span className="block text-gradient-brand italic">
+            à l'agent de code.
+          </span>
+        </h1>
+
+        <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
+          Vous utilisez déjà l'IA. Probablement au{" "}
+          <span className="text-white/90 font-medium">mauvais endroit</span>.
+          Neuf sections, un quiz, zéro connexion — pour passer du chat éphémère
+          à l'agent qui connaît votre repo.
+        </p>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <a href="#s1">
+            <ButtonPrimary>Commencer le parcours</ButtonPrimary>
+          </a>
+          <ButtonSecondary onClick={() => document.getElementById("s9")?.scrollIntoView()}>
+            Aller au quiz
+          </ButtonSecondary>
         </div>
 
-        {/* Visual split */}
-        <div className="relative mt-20 grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
-          <ChatWebMock />
-          <div className="hidden justify-center lg:flex">
-            <div className="grid h-14 w-14 place-items-center rounded-full bg-gradient-brand text-white shadow-raised">
-              <ArrowRight className="h-6 w-6" />
-            </div>
-          </div>
-          <IDEMock />
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-widest text-ink-soft">
+          {["dotnet", "c#", "html", "css", "cursor", "MCP"].map((t) => (
+            <span
+              key={t}
+              className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1"
+            >
+              {t}
+            </span>
+          ))}
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-3 sm:flex">
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink-soft/60">
+          scroll
+        </span>
+        <div className="h-16 w-px bg-gradient-to-b from-indigo-400/70 to-transparent" />
       </div>
     </section>
   );
