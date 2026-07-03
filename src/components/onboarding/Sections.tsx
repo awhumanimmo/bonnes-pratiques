@@ -84,15 +84,23 @@ export function Hero() {
       className="scroll-mt-section relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-32 pb-20"
     >
       {/* Ambient layers */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid opacity-60" />
+      <div
+        aria-hidden
+        data-parallax="0.15"
+        className="pointer-events-none absolute inset-0 bg-grid opacity-60"
+      />
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-noise opacity-40 mix-blend-overlay" />
       <div
         aria-hidden
+        data-parallax="0.45"
+        data-parallax-scale="0.15"
         className="pointer-events-none absolute left-1/2 top-1/3 h-[800px] w-[800px] -translate-x-1/2 rounded-full blur-[130px] animate-blob"
         style={{ background: "radial-gradient(circle, rgba(124,58,237,0.35), transparent 60%)" }}
       />
       <div
         aria-hidden
+        data-parallax="-0.35"
+        data-parallax-x="0.05"
         className="pointer-events-none absolute right-1/4 bottom-1/4 h-[500px] w-[500px] rounded-full blur-[110px] animate-blob"
         style={{ background: "radial-gradient(circle, rgba(34,211,238,0.22), transparent 60%)", animationDelay: "-6s" }}
       />
@@ -105,19 +113,29 @@ export function Hero() {
       {/* Floating code panels — parallax feel */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-4 top-24 hidden max-w-[280px] rotate-[-6deg] opacity-70 lg:block xl:left-16"
-        style={{ transform: "rotate(-6deg) translateY(0)" }}
+        data-parallax="0.55"
+        data-parallax-rotate="-4"
+        className="pointer-events-none absolute left-4 top-24 hidden max-w-[280px] opacity-70 lg:block xl:left-16"
       >
-        <ChatWebMock />
+        <div style={{ transform: "rotate(-6deg)" }}>
+          <ChatWebMock />
+        </div>
       </div>
       <div
         aria-hidden
-        className="pointer-events-none absolute right-4 bottom-24 hidden max-w-[360px] rotate-[5deg] opacity-80 lg:block xl:right-16"
+        data-parallax="0.7"
+        data-parallax-rotate="3"
+        className="pointer-events-none absolute right-4 bottom-24 hidden max-w-[360px] opacity-80 lg:block xl:right-16"
       >
-        <IDEMock />
+        <div style={{ transform: "rotate(5deg)" }}>
+          <IDEMock />
+        </div>
       </div>
 
-      <div className="relative z-10 max-w-5xl text-center animate-fade-up">
+      <div
+        className="relative z-10 max-w-5xl text-center animate-fade-up"
+        data-parallax="-0.08"
+      >
         <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-1.5 backdrop-blur-md">
           <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
           <span className="font-mono text-[11px] font-bold uppercase tracking-[0.24em] text-indigo-300">
