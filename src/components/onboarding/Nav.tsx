@@ -59,23 +59,31 @@ export function Header({ onOpenMenu }: { onOpenMenu: () => void }) {
   const progress = useScrollProgress();
   return (
     <header
-      className="fixed inset-x-0 top-0 z-40 border-b border-white/5"
+      className="fixed inset-x-0 top-0 z-40"
       style={{
-        background: "rgba(6, 6, 12, 0.55)",
-        backdropFilter: "saturate(180%) blur(14px)",
+        background: "oklch(0.965 0.018 78 / 0.82)",
+        backdropFilter: "saturate(160%) blur(10px)",
+        borderBottom: "1.5px solid var(--ink)",
       }}
     >
       <div className="mx-auto flex h-16 w-full max-w-[1400px] items-center gap-4 px-6 lg:px-10">
         <a href="#hero" className="flex min-w-0 items-center gap-3">
           <span
             aria-hidden
-            className="h-7 w-7 rounded-lg shadow-lg shadow-indigo-500/30"
-            style={{ background: "linear-gradient(135deg,#7C3AED,#22D3EE)" }}
+            className="h-7 w-7 rounded-sm"
+            style={{
+              background: "var(--indigo)",
+              border: "1.5px solid var(--ink)",
+              boxShadow: "2px 2px 0 0 var(--ink)",
+            }}
           />
-          <span className="font-bold tracking-tight uppercase text-sm text-white">
-            Cursor<span className="text-indigo-400">.</span>NET
+          <span
+            className="text-lg font-black italic tracking-tight text-ink"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Cursor<span style={{ color: "var(--indigo)" }}>.</span>NET
           </span>
-          <span aria-hidden className="hidden h-4 w-px bg-white/10 sm:block" />
+          <span aria-hidden className="hidden h-4 w-px sm:block" style={{background:"var(--ink)"}} />
           <span className="hidden truncate text-sm font-medium text-ink-soft sm:block">
             Onboarding IA · Human
           </span>
@@ -87,7 +95,8 @@ export function Header({ onOpenMenu }: { onOpenMenu: () => void }) {
           <button
             aria-label="Ouvrir le sommaire"
             onClick={onOpenMenu}
-            className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-ink transition-colors hover:border-white/30 lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-sm text-ink lg:hidden"
+            style={{ border: "1.5px solid var(--ink)", boxShadow: "2px 2px 0 0 var(--ink)" }}
           >
             <Menu className="h-4 w-4" />
           </button>
@@ -95,11 +104,12 @@ export function Header({ onOpenMenu }: { onOpenMenu: () => void }) {
       </div>
       <div
         aria-hidden
-        className="h-[2px] w-full bg-white/5"
+        className="h-[3px] w-full"
+        style={{ background: "oklch(0.22 0.03 40 / 0.08)" }}
       >
         <div
           className="h-full transition-[width] duration-150"
-          style={{ width: `${progress}%`, background: "linear-gradient(90deg,#7C3AED,#22D3EE,#EC4899)" }}
+          style={{ width: `${progress}%`, background: "var(--indigo)" }}
         />
       </div>
     </header>
@@ -125,23 +135,34 @@ export function Sidebar() {
               >
                 <span
                   aria-hidden
-                  className={`block h-px transition-all ${
-                    isActive ? "w-10 bg-gradient-brand" :
-                    isSeen   ? "w-6 bg-emerald-400/70" :
-                               "w-4 bg-white/20"
+                  className={`block h-[2px] transition-all ${
+                    isActive ? "w-12" :
+                    isSeen   ? "w-8" :
+                               "w-4"
                   }`}
+                  style={{
+                    background: isActive
+                      ? "var(--indigo)"
+                      : isSeen
+                        ? "var(--violet)"
+                        : "var(--ink)",
+                    opacity: isActive || isSeen ? 1 : 0.35,
+                  }}
                 />
                 <span
                   className={`transition-opacity ${
-                    isActive ? "text-white" :
-                    isSeen   ? "text-emerald-300/70" :
+                    isActive ? "text-ink font-bold" :
+                    isSeen   ? "text-ink/70" :
                     "opacity-50 group-hover:opacity-100"
                   }`}
                 >
                   {s.num}
                 </span>
                 {isActive && (
-                  <span className="max-w-[160px] truncate text-white/80 normal-case tracking-normal">
+                  <span
+                    className="max-w-[180px] truncate text-ink normal-case tracking-normal italic"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
                     {s.label}
                   </span>
                 )}
@@ -166,19 +187,21 @@ export function MobileDrawer({
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
       <div
-        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+        className="absolute inset-0 backdrop-blur-sm"
+        style={{ background: "oklch(0.22 0.03 40 / 0.5)" }}
         onClick={onClose}
       />
       <aside
         className="absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col p-6"
-        style={{ background: "oklch(0.12 0.02 270)" }}
+        style={{ background: "var(--surface-raised)", borderLeft: "1.5px solid var(--ink)" }}
       >
         <div className="mb-6 flex items-center justify-between">
           <HumanLogo />
           <button
             aria-label="Fermer le sommaire"
             onClick={onClose}
-            className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5"
+            className="grid h-10 w-10 place-items-center rounded-sm"
+            style={{ border: "1.5px solid var(--ink)" }}
           >
             <X className="h-4 w-4" />
           </button>
@@ -193,26 +216,29 @@ export function MobileDrawer({
                 <a
                   href={`#${s.id}`}
                   onClick={onClose}
-                  className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium ${
+                  className={`flex items-center gap-3 rounded-sm px-3 py-3 text-sm font-medium ${
                     isActive
-                      ? "bg-white/10 text-white"
-                      : "text-ink-soft hover:bg-white/5"
+                      ? "text-white"
+                      : "text-ink hover:bg-ink/5"
                   }`}
+                  style={isActive ? { background: "var(--indigo)" } : undefined}
                 >
                   <span
-                    className={`grid h-7 w-7 shrink-0 place-items-center rounded-full border text-[11px] font-mono ${
-                      isActive
-                        ? "border-transparent bg-gradient-brand text-white"
+                    className="grid h-7 w-7 shrink-0 place-items-center rounded-sm text-[11px] font-mono font-bold"
+                    style={{
+                      border: "1.5px solid " + (isActive ? "white" : "var(--ink)"),
+                      background: isActive
+                        ? "transparent"
                         : isSeen
-                          ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
-                          : "border-white/10 bg-white/5"
-                    }`}
+                          ? "var(--cyan)"
+                          : "transparent",
+                    }}
                   >
                     {isSeen ? <Check className="h-3.5 w-3.5" /> : s.num}
                   </span>
                   <span className="min-w-0 flex-1 truncate">{s.label}</span>
                   {s.duration && (
-                    <span className="text-[11px] text-ink-soft">
+                    <span className={`text-[11px] ${isActive ? "text-white/70" : "text-ink-soft"}`}>
                       {s.duration}
                     </span>
                   )}
