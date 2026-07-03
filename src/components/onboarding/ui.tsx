@@ -97,6 +97,8 @@ export function Section({
       {num && (
         <div
           aria-hidden
+          data-parallax="-0.35"
+          data-parallax-rotate="-6"
           className="pointer-events-none absolute -right-4 top-8 select-none font-black leading-none tracking-tighter sm:-right-6 sm:top-12"
           style={{
             fontSize: "clamp(180px, 26vw, 380px)",
@@ -105,6 +107,16 @@ export function Section({
           }}
         >
           {num}
+        </div>
+      )}
+      {num && (
+        <div
+          aria-hidden
+          data-parallax="0.18"
+          data-parallax-x="-0.05"
+          className="pointer-events-none absolute -left-16 bottom-10 hidden select-none font-mono text-[11px] uppercase tracking-[0.4em] text-white/25 lg:block"
+        >
+          / section — {num}
         </div>
       )}
       <div className="relative mx-auto w-full max-w-6xl px-6 lg:px-10" data-reveal>
