@@ -115,17 +115,21 @@ export function Hero() {
         aria-hidden
         data-parallax="0.55"
         data-parallax-rotate="-4"
-        className="pointer-events-none absolute left-4 top-24 hidden max-w-[280px] rotate-[-6deg] opacity-70 lg:block xl:left-16"
+        className="pointer-events-none absolute left-4 top-24 hidden max-w-[280px] opacity-70 lg:block xl:left-16"
       >
-        <ChatWebMock />
+        <div style={{ transform: "rotate(-6deg)" }}>
+          <ChatWebMock />
+        </div>
       </div>
       <div
         aria-hidden
         data-parallax="0.7"
         data-parallax-rotate="3"
-        className="pointer-events-none absolute right-4 bottom-24 hidden max-w-[360px] rotate-[5deg] opacity-80 lg:block xl:right-16"
+        className="pointer-events-none absolute right-4 bottom-24 hidden max-w-[360px] opacity-80 lg:block xl:right-16"
       >
-        <IDEMock />
+        <div style={{ transform: "rotate(5deg)" }}>
+          <IDEMock />
+        </div>
       </div>
 
       <div
