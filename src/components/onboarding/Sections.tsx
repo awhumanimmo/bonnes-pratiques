@@ -89,20 +89,20 @@ export function Hero() {
         data-parallax="0.15"
         className="pointer-events-none absolute inset-0 bg-grid opacity-60"
       />
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-noise opacity-40 mix-blend-overlay" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-noise opacity-30 mix-blend-multiply" />
       <div
         aria-hidden
         data-parallax="0.45"
         data-parallax-scale="0.15"
         className="pointer-events-none absolute left-1/2 top-1/3 h-[800px] w-[800px] -translate-x-1/2 rounded-full blur-[130px] animate-blob"
-        style={{ background: "radial-gradient(circle, rgba(124,58,237,0.35), transparent 60%)" }}
+        style={{ background: "radial-gradient(circle, rgba(196,101,74,0.30), transparent 60%)" }}
       />
       <div
         aria-hidden
         data-parallax="-0.35"
         data-parallax-x="0.05"
         className="pointer-events-none absolute right-1/4 bottom-1/4 h-[500px] w-[500px] rounded-full blur-[110px] animate-blob"
-        style={{ background: "radial-gradient(circle, rgba(34,211,238,0.22), transparent 60%)", animationDelay: "-6s" }}
+        style={{ background: "radial-gradient(circle, rgba(135,168,120,0.28), transparent 60%)", animationDelay: "-6s" }}
       />
       <div
         aria-hidden
@@ -117,7 +117,7 @@ export function Hero() {
         data-parallax-rotate="-4"
         className="pointer-events-none absolute left-4 top-24 hidden max-w-[280px] opacity-70 lg:block xl:left-16"
       >
-        <div style={{ transform: "rotate(-6deg)" }}>
+        <div style={{ transform: "rotate(-8deg)" }}>
           <ChatWebMock />
         </div>
       </div>
@@ -127,35 +127,96 @@ export function Hero() {
         data-parallax-rotate="3"
         className="pointer-events-none absolute right-4 bottom-24 hidden max-w-[360px] opacity-80 lg:block xl:right-16"
       >
-        <div style={{ transform: "rotate(5deg)" }}>
+        <div style={{ transform: "rotate(6deg)" }}>
           <IDEMock />
         </div>
+      </div>
+
+      {/* Broken-grid stickers */}
+      <div
+        aria-hidden
+        data-parallax="0.3"
+        className="pointer-events-none absolute left-[12%] top-[22%] hidden select-none lg:block"
+      >
+        <span
+          className="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-white"
+          style={{
+            background: "var(--indigo)",
+            border: "1.5px solid var(--ink)",
+            boxShadow: "3px 3px 0 0 var(--ink)",
+            transform: "rotate(-8deg)",
+          }}
+        >
+          Édition N°01
+        </span>
+      </div>
+      <div
+        aria-hidden
+        data-parallax="-0.25"
+        className="pointer-events-none absolute right-[10%] top-[18%] hidden select-none lg:block"
+      >
+        <span
+          className="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-ink"
+          style={{
+            background: "var(--cyan)",
+            border: "1.5px solid var(--ink)",
+            boxShadow: "3px 3px 0 0 var(--ink)",
+            transform: "rotate(6deg)",
+          }}
+        >
+          Manuel · 45 min
+        </span>
       </div>
 
       <div
         className="relative z-10 max-w-5xl text-center animate-fade-up"
         data-parallax="-0.08"
       >
-        <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-1.5 backdrop-blur-md">
-          <span className="h-2 w-2 rounded-full bg-indigo-400 animate-pulse" />
-          <span className="font-mono text-[11px] font-bold uppercase tracking-[0.24em] text-indigo-300">
+        <span
+          className="inline-flex items-center gap-2 rounded-sm px-4 py-1.5"
+          style={{
+            background: "var(--surface-raised)",
+            border: "1.5px solid var(--ink)",
+            boxShadow: "3px 3px 0 0 var(--ink)",
+          }}
+        >
+          <span
+            className="h-2 w-2 rounded-full animate-pulse"
+            style={{ background: "var(--indigo)" }}
+          />
+          <span className="font-mono text-[11px] font-bold uppercase tracking-[0.24em] text-ink">
             Onboarding · 45 min · .NET / C#
           </span>
         </span>
 
-        <h1 className="mt-8 text-[56px] font-black leading-[0.9] tracking-tighter sm:text-[88px] lg:text-[120px]">
-          <span className="block bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
-            DE L'IA WEB
+        <h1
+          className="mt-8 leading-[0.92] tracking-tight"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          <span className="block text-[56px] font-black text-ink sm:text-[92px] lg:text-[132px]">
+            De l'IA web
           </span>
-          <span className="block text-gradient-brand italic">
+          <span
+            className="block text-[56px] font-black italic sm:text-[92px] lg:text-[132px]"
+            style={{ color: "var(--indigo)" }}
+          >
             à l'agent de code.
           </span>
         </h1>
 
-        <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
+        <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-ink sm:text-xl">
           Vous utilisez déjà l'IA. Probablement au{" "}
-          <span className="text-white/90 font-medium">mauvais endroit</span>.
-          Neuf sections, un quiz, zéro connexion — pour passer du chat éphémère
+          <span
+            className="font-semibold italic"
+            style={{
+              color: "var(--indigo)",
+              backgroundImage:
+                "linear-gradient(transparent 60%, oklch(0.78 0.09 60 / 0.5) 60%)",
+            }}
+          >
+            mauvais endroit
+          </span>
+          . Neuf sections, un quiz, zéro connexion — pour passer du chat éphémère
           à l'agent qui connaît votre repo.
         </p>
 
@@ -172,7 +233,8 @@ export function Hero() {
           {["dotnet", "c#", "html", "css", "cursor", "MCP"].map((t) => (
             <span
               key={t}
-              className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1"
+              className="rounded-sm px-3 py-1 text-ink"
+              style={{ border: "1.5px solid var(--ink)", background: "var(--surface-raised)" }}
             >
               {t}
             </span>
@@ -182,10 +244,13 @@ export function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-3 sm:flex">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink-soft/60">
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink-soft">
           scroll
         </span>
-        <div className="h-16 w-px bg-gradient-to-b from-indigo-400/70 to-transparent" />
+        <div
+          className="h-16 w-[2px]"
+          style={{ background: "linear-gradient(to bottom, var(--ink), transparent)" }}
+        />
       </div>
     </section>
   );
@@ -193,19 +258,31 @@ export function Hero() {
 
 function ChatWebMock() {
   return (
-    <div className="rounded-2xl border border-hairline bg-surface-raised p-5 shadow-soft">
+    <div
+      className="rounded-sm bg-surface-raised p-5"
+      style={{ border: "1.5px solid var(--ink)", boxShadow: "5px 5px 0 0 var(--ink)" }}
+    >
       <div className="mb-4 flex items-center gap-2 text-xs text-ink-soft">
         <MessageSquare className="h-3.5 w-3.5" />
         <span className="font-mono">chat.web / session éphémère</span>
       </div>
       <div className="space-y-3">
-        <div className="max-w-[85%] rounded-2xl bg-ink/5 px-4 py-2.5 text-sm text-ink">
+        <div
+          className="max-w-[85%] rounded-sm px-4 py-2.5 text-sm text-ink"
+          style={{ background: "oklch(0.22 0.03 40 / 0.07)", border: "1px solid var(--ink)" }}
+        >
           Écris-moi une méthode C# pour récupérer un user.
         </div>
-        <div className="ml-auto max-w-[85%] rounded-2xl bg-gradient-brand px-4 py-2.5 text-sm text-white">
+        <div
+          className="ml-auto max-w-[85%] rounded-sm px-4 py-2.5 text-sm text-white"
+          style={{ background: "var(--indigo)", border: "1px solid var(--ink)" }}
+        >
           public User GetUser(int id) &#123; ... &#125;
         </div>
-        <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-[12px] text-amber-200">
+        <div
+          className="rounded-sm px-3 py-2 text-[12px] text-ink"
+          style={{ background: "oklch(0.78 0.13 70 / 0.35)", border: "1px solid var(--ink)" }}
+        >
           Hors conventions équipe. Aucun accès au code réel.
         </div>
       </div>
@@ -215,14 +292,21 @@ function ChatWebMock() {
 
 function IDEMock() {
   return (
-    <div className="overflow-hidden rounded-2xl border border-hairline bg-ink shadow-raised">
+    <div
+      className="overflow-hidden rounded-sm"
+      style={{
+        background: "var(--code-bg)",
+        border: "1.5px solid var(--ink)",
+        boxShadow: "5px 5px 0 0 var(--indigo)",
+      }}
+    >
       <div className="flex items-center gap-2 border-b border-white/10 px-4 py-2.5">
         <div className="flex gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-surface-raised/15" />
-          <span className="h-2.5 w-2.5 rounded-full bg-surface-raised/15" />
-          <span className="h-2.5 w-2.5 rounded-full bg-surface-raised/15" />
+          <span className="h-2.5 w-2.5 rounded-full" style={{background:"#e8a87c"}} />
+          <span className="h-2.5 w-2.5 rounded-full" style={{background:"#87a878"}} />
+          <span className="h-2.5 w-2.5 rounded-full" style={{background:"#c4654a"}} />
         </div>
-        <span className="ml-2 font-mono text-[11px] text-white/50">
+        <span className="ml-2 font-mono text-[11px] text-white/60">
           UserService.cs · agent
         </span>
       </div>
@@ -238,21 +322,21 @@ function IDEMock() {
         : Result.Ok(user);
 }`}
         </pre>
-        <div className="space-y-2 bg-surface-raised/[0.02] p-3">
+        <div className="space-y-2 p-3" style={{background:"oklch(1 0 0 / 0.03)"}}>
           <div className="flex items-center gap-1.5 text-[11px] font-semibold text-white/70">
-            <Sparkles className="h-3 w-3 text-indigo-300" />
+            <Sparkles className="h-3 w-3" style={{color: "#e8a87c"}} />
             Agent IA
           </div>
-          <div className="rounded-md bg-surface-raised/5 p-2 text-[11px] text-white/70">
+          <div className="rounded-sm p-2 text-[11px] text-white/70" style={{background:"oklch(1 0 0 / 0.06)"}}>
             @UserService.cs
           </div>
-          <div className="rounded-md bg-emerald-500/10 p-2 text-[11px] text-emerald-300">
+          <div className="rounded-sm p-2 text-[11px] text-white" style={{background:"oklch(0.55 0.13 145 / 0.6)"}}>
             ✓ Result&lt;T&gt;
           </div>
-          <div className="rounded-md bg-emerald-500/10 p-2 text-[11px] text-emerald-300">
+          <div className="rounded-sm p-2 text-[11px] text-white" style={{background:"oklch(0.55 0.13 145 / 0.6)"}}>
             ✓ async / CT
           </div>
-          <div className="rounded-md bg-emerald-500/10 p-2 text-[11px] text-emerald-300">
+          <div className="rounded-sm p-2 text-[11px] text-white" style={{background:"oklch(0.55 0.13 145 / 0.6)"}}>
             ✓ FR
           </div>
         </div>
