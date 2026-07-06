@@ -230,7 +230,7 @@ export function Hero() {
         </div>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-widest text-ink-soft">
-          {["dotnet", "c#", "html", "css", "cursor", "MCP"].map((t) => (
+          {["dotnet", "c#", "html", "css", "codex", "MCP"].map((t) => (
             <span
               key={t}
               className="rounded-sm px-3 py-1 text-ink"
@@ -568,7 +568,7 @@ export function Section3() {
       </Eyebrow>
       <SectionTitle>Vos conventions, écrites une fois.</SectionTitle>
       <SectionLead>
-        Les rules sont un fichier markdown dans <code className="font-mono text-[14px]">.cursor/rules</code>{" "}
+        Les rules sont un fichier markdown dans <code className="font-mono text-[14px]">.codex/rules</code>{" "}
         que l'agent lit à chaque prompt. Vos conventions cessent d'être orales.
       </SectionLead>
 
@@ -591,7 +591,7 @@ export function Section3() {
         <div>
           <div className="mb-3 flex items-center gap-2">
             <Badge tone="success">Après</Badge>
-            <span className="text-sm text-ink-soft">Avec .cursor/rules</span>
+            <span className="text-sm text-ink-soft">Avec .codex/rules</span>
           </div>
           <CodeBlock filename="Handler.cs" language="c#">
 {`public async Task<Result<User>>
@@ -607,7 +607,7 @@ export function Section3() {
       </div>
 
       <div className="mt-8">
-        <CodeBlock filename=".cursor/rules/csharp.md" language="md">
+        <CodeBlock filename=".codex/rules/csharp.md" language="md">
 {`# Conventions C# — Équipe Human
 
 - Toujours retourner Result<T>, jamais lever d'exception métier.
@@ -782,7 +782,7 @@ export function Section5() {
         <div className="flex items-start gap-3 text-[14px] text-amber-200">
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
           <span>
-            <strong>Attention :</strong> un plugin Cursor n'est pas une extension VS
+            <strong>Attention :</strong> un plugin Codex n'est pas une extension VS
             Code. Il ne modifie pas l'IDE — il étend l'agent.
           </span>
         </div>
@@ -882,7 +882,7 @@ export function Section6() {
       {/* Flow diagram */}
       <div className="mt-14 grid gap-4 lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:items-center">
         {[
-          { t: "Agent Cursor", d: "Formule une intention", icon: Sparkles },
+          { t: "Agent Codex", d: "Formule une intention", icon: Sparkles },
           { t: "Serveur MCP", d: "Traduit en appel outil", icon: Server },
           { t: "SonarQube", d: "Rend un résultat structuré", icon: Cpu },
         ].map((n, i) => (
@@ -959,7 +959,7 @@ export function Section7() {
     { t: "~40 agents guideline-*", d: "Un par domaine" },
     { t: "Orchestrateur", d: "Dispatch par PR" },
     { t: "review-guidelines", d: "Skill runner" },
-    { t: "Rapport", d: ".cursor/guideline-review/" },
+    { t: "Rapport", d: ".codex/guideline-review/" },
   ];
   return (
     <Section id="s7" num="07">
@@ -999,7 +999,7 @@ export function Section7() {
         markdown. <code className="font-mono text-[13px]">build-guideline-agents</code>{" "}
         régénère nos ~40 agents dans le repo. À l'ouverture d'une PR,
         l'orchestrateur dispatche automatiquement les bons agents et écrit un
-        rapport dans <code className="font-mono text-[13px]">.cursor/guideline-review/</code>.
+        rapport dans <code className="font-mono text-[13px]">.codex/guideline-review/</code>.
       </HumanCallout>
 
       {/* Sub visual: PR review */}
@@ -1152,15 +1152,15 @@ export function Section8() {
 type Q = { q: string; opts: string[]; correct: number; explain: string };
 const QUIZ: Q[] = [
   { q: "Quelle est la vraie différence entre chat web et agent IDE ?", opts: ["Le modèle utilisé", "L'accès au contexte du repo", "La vitesse de réponse", "Le prix"], correct: 1, explain: "Même famille de modèles sous le capot — c'est l'accès au contexte qui change tout." },
-  { q: "Où mettre les conventions équipe pour qu'un agent les respecte ?", opts: [".vscode/settings.json", "README.md", ".cursor/rules/", "Un canal Slack"], correct: 2, explain: "Les fichiers .cursor/rules/ sont lus à chaque prompt." },
-  { q: "Un plugin Cursor, c'est…", opts: ["Une extension VS Code", "Un pack skills/agents/hooks/commands", "Un modèle IA", "Un serveur cloud"], correct: 1, explain: "Un pack installable qui étend l'agent, pas l'IDE." },
+  { q: "Où mettre les conventions équipe pour qu'un agent les respecte ?", opts: [".vscode/settings.json", "README.md", ".codex/rules/", "Un canal Slack"], correct: 2, explain: "Les fichiers .codex/rules/ sont lus à chaque prompt." },
+  { q: "Un plugin Codex, c'est…", opts: ["Une extension VS Code", "Un pack skills/agents/hooks/commands", "Un modèle IA", "Un serveur cloud"], correct: 1, explain: "Un pack installable qui étend l'agent, pas l'IDE." },
   { q: "MCP sert à…", opts: ["Compresser le contexte", "Brancher un outil externe à l'agent", "Générer des tests", "Chiffrer les prompts"], correct: 1, explain: "MCP = protocole standard agent ↔ outil." },
   { q: "Attacher un @dossier entier a pour effet…", opts: ["D'améliorer toujours la réponse", "De consommer beaucoup de contexte", "De protéger vos secrets", "De désactiver les rules"], correct: 1, explain: "Un dossier peut saturer la jauge — préférez le fichier précis." },
   { q: "Un skill, c'est…", opts: ["Un modèle fine-tuné", "Un savoir-faire packagé activable", "Une extension IDE", "Une commande Git"], correct: 1, explain: "Un skill = prompt + outils + mode opératoire, réutilisable." },
   { q: "Vous avez ~40 guidelines. Que faire ?", opts: ["Tout mettre dans une seule rule", "Générer 40 agents spécialisés", "Ignorer, trop long", "Faire un README géant"], correct: 1, explain: "Un système d'agents scale mieux qu'une mega-rule." },
   { q: "Un agent propose un diff. Quelle est la bonne étape suivante ?", opts: ["Merger direct", "Relire ligne à ligne", "Copier dans un chat web", "Écrire une nouvelle rule"], correct: 1, explain: "L'agent se trompe — la relecture ligne à ligne reste obligatoire." },
   { q: "Pour brancher SQL Server à l'agent en lecture seule, on utilise…", opts: ["Un skill", "Une rule", "Un serveur MCP", "Un hook Git"], correct: 2, explain: "MCP est le bon canal pour un outil externe." },
-  { q: "Avant d'ouvrir une PR, lancez…", opts: ["git push --force", "review-guidelines", "npm audit", "cursor --reset"], correct: 1, explain: "Notre rituel équipe : trois minutes de review-guidelines." },
+  { q: "Avant d'ouvrir une PR, lancez…", opts: ["git push --force", "review-guidelines", "npm audit", "codex --reset"], correct: 1, explain: "Notre rituel équipe : trois minutes de review-guidelines." },
 ];
 
 export function Section9() {
@@ -1347,7 +1347,7 @@ function QuizResult({ score, onReset }: { score: number; onReset: () => void }) 
         </h3>
         <p className="mx-auto mt-3 max-w-md text-[15px] text-ink-soft">
           {passed
-            ? "Vous avez les bons réflexes. Lancez votre premier projet Cursor avec les rules équipe."
+            ? "Vous avez les bons réflexes. Lancez votre premier projet Codex avec les rules équipe."
             : "Reprenez les sections où vous avez trébuché. La courbe est courte."}
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
