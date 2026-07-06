@@ -81,7 +81,7 @@ export function Header({ onOpenMenu }: { onOpenMenu: () => void }) {
             className="text-lg font-black italic tracking-tight text-ink"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Cursor<span style={{ color: "var(--indigo)" }}>.</span>NET
+            Codex<span style={{ color: "var(--indigo)" }}>.</span>NET
           </span>
           <span aria-hidden className="hidden h-4 w-px sm:block" style={{background:"var(--ink)"}} />
           <span className="hidden truncate text-sm font-medium text-ink-soft sm:block">
