@@ -1236,9 +1236,9 @@ export function Section9() {
                       : "muted";
               const styles: Record<string, string> = {
                 idle: "border-hairline bg-surface-raised hover:border-ink/30 hover:bg-ink/[0.02]",
-                right: "border-emerald-500/40 bg-emerald-500/15 text-emerald-200",
-                wrong: "border-red-500/40 bg-red-500/15 text-red-200",
-                reveal: "border-emerald-500/40 bg-emerald-500/15/60 text-emerald-200",
+                right: "border-emerald-700/80 bg-emerald-600/20 text-ink",
+                wrong: "border-red-700/80 bg-red-600/20 text-ink",
+                reveal: "border-emerald-700/80 bg-emerald-600/20 text-ink",
                 muted: "border-hairline bg-surface-raised opacity-60",
               };
               return (
@@ -1246,14 +1246,14 @@ export function Section9() {
                   key={i}
                   onClick={() => pick(i)}
                   disabled={answered}
-                  className={`flex items-center justify-between gap-4 rounded-xl border px-5 py-4 text-left text-[15px] font-medium transition-all ${styles[state]}`}
+                  className={`flex items-center justify-between gap-4 rounded-xl border px-5 py-4 text-left text-[15px] font-semibold transition-all ${styles[state]}`}
                 >
                   <span>{opt}</span>
                   {answered && isRight && (
-                    <Check className="h-5 w-5 text-emerald-600" />
+                    <Check className="h-5 w-5 text-emerald-800" />
                   )}
                   {answered && picked && !isRight && (
-                    <X className="h-5 w-5 text-red-600" />
+                    <X className="h-5 w-5 text-red-800" />
                   )}
                 </button>
               );
@@ -1262,10 +1262,10 @@ export function Section9() {
 
           {answered && (
             <div
-              className={`mt-6 rounded-xl border px-4 py-3 text-[14px] ${
+              className={`mt-6 rounded-xl border px-4 py-3 text-[14px] font-medium ${
                 answers[step] === cur.correct
-                  ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-200"
-                  : "border-red-500/30 bg-red-500/10 text-red-200"
+                  ? "border-emerald-700/50 bg-emerald-600/15 text-ink"
+                  : "border-red-700/50 bg-red-600/15 text-ink"
               }`}
             >
               <strong>
