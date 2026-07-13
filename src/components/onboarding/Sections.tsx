@@ -1151,16 +1151,16 @@ export function Section8() {
  * ============================================================ */
 type Q = { q: string; opts: string[]; correct: number; explain: string };
 const QUIZ: Q[] = [
-  { q: "Quelle est la vraie différence entre chat web et agent IDE ?", opts: ["Le modèle utilisé", "L'accès au contexte du repo", "La vitesse de réponse", "Le prix"], correct: 1, explain: "Même famille de modèles sous le capot — c'est l'accès au contexte qui change tout." },
-  { q: "Où mettre les conventions équipe pour qu'un agent les respecte ?", opts: [".vscode/settings.json", "README.md", ".codex/rules/", "Un canal Slack"], correct: 2, explain: "Les fichiers .codex/rules/ sont lus à chaque prompt." },
-  { q: "Un plugin Codex, c'est…", opts: ["Une extension VS Code", "Un pack skills/agents/hooks/commands", "Un modèle IA", "Un serveur cloud"], correct: 1, explain: "Un pack installable qui étend l'agent, pas l'IDE." },
-  { q: "MCP sert à…", opts: ["Compresser le contexte", "Brancher un outil externe à l'agent", "Générer des tests", "Chiffrer les prompts"], correct: 1, explain: "MCP = protocole standard agent ↔ outil." },
-  { q: "Attacher un @dossier entier a pour effet…", opts: ["D'améliorer toujours la réponse", "De consommer beaucoup de contexte", "De protéger vos secrets", "De désactiver les rules"], correct: 1, explain: "Un dossier peut saturer la jauge — préférez le fichier précis." },
-  { q: "Un skill, c'est…", opts: ["Un modèle fine-tuné", "Un savoir-faire packagé activable", "Une extension IDE", "Une commande Git"], correct: 1, explain: "Un skill = prompt + outils + mode opératoire, réutilisable." },
-  { q: "Vous avez ~40 guidelines. Que faire ?", opts: ["Tout mettre dans une seule rule", "Générer 40 agents spécialisés", "Ignorer, trop long", "Faire un README géant"], correct: 1, explain: "Un système d'agents scale mieux qu'une mega-rule." },
-  { q: "Un agent propose un diff. Quelle est la bonne étape suivante ?", opts: ["Merger direct", "Relire ligne à ligne", "Copier dans un chat web", "Écrire une nouvelle rule"], correct: 1, explain: "L'agent se trompe — la relecture ligne à ligne reste obligatoire." },
-  { q: "Pour brancher SQL Server à l'agent en lecture seule, on utilise…", opts: ["Un skill", "Une rule", "Un serveur MCP", "Un hook Git"], correct: 2, explain: "MCP est le bon canal pour un outil externe." },
-  { q: "Avant d'ouvrir une PR, lancez…", opts: ["git push --force", "review-guidelines", "npm audit", "codex --reset"], correct: 1, explain: "Notre rituel équipe : trois minutes de review-guidelines." },
+  { q: "Quelle est la vraie différence entre chat web et agent IDE ?", opts: ["L'accès au contexte du repo", "Le modèle utilisé", "Le prix", "La vitesse de réponse"], correct: 0, explain: "Même famille de modèles sous le capot — c'est l'accès au contexte qui change tout." },
+  { q: "Où mettre les conventions équipe pour qu'un agent les respecte ?", opts: ["Un canal Slack", "README.md", ".vscode/settings.json", ".codex/rules/"], correct: 3, explain: "Les fichiers .codex/rules/ sont lus à chaque prompt." },
+  { q: "Un plugin Codex, c'est…", opts: ["Une extension VS Code", "Un modèle IA", "Un pack skills/agents/hooks/commands", "Un serveur cloud"], correct: 2, explain: "Un pack installable qui étend l'agent, pas l'IDE." },
+  { q: "MCP sert à…", opts: ["Brancher un outil externe à l'agent", "Compresser le contexte", "Générer des tests", "Chiffrer les prompts"], correct: 0, explain: "MCP = protocole standard agent ↔ outil." },
+  { q: "Attacher un @dossier entier a pour effet…", opts: ["D'améliorer toujours la réponse", "De protéger vos secrets", "De désactiver les rules", "De consommer beaucoup de contexte"], correct: 3, explain: "Un dossier peut saturer la jauge — préférez le fichier précis." },
+  { q: "Un skill, c'est…", opts: ["Un modèle fine-tuné", "Une extension IDE", "Un savoir-faire packagé activable", "Une commande Git"], correct: 2, explain: "Un skill = prompt + outils + mode opératoire, réutilisable." },
+  { q: "Vous avez ~40 guidelines. Que faire ?", opts: ["Générer 40 agents spécialisés", "Tout mettre dans une seule rule", "Ignorer, trop long", "Faire un README géant"], correct: 0, explain: "Un système d'agents scale mieux qu'une mega-rule." },
+  { q: "Un agent propose un diff. Quelle est la bonne étape suivante ?", opts: ["Merger direct", "Copier dans un chat web", "Écrire une nouvelle rule", "Relire ligne à ligne"], correct: 3, explain: "L'agent se trompe — la relecture ligne à ligne reste obligatoire." },
+  { q: "Pour brancher SQL Server à l'agent en lecture seule, on utilise…", opts: ["Un skill", "Un serveur MCP", "Une rule", "Un hook Git"], correct: 1, explain: "MCP est le bon canal pour un outil externe." },
+  { q: "Avant d'ouvrir une PR, lancez…", opts: ["git push --force", "npm audit", "review-guidelines", "codex --reset"], correct: 2, explain: "Notre rituel équipe : trois minutes de review-guidelines." },
 ];
 
 export function Section9() {
