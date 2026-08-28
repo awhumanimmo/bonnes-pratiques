@@ -566,10 +566,10 @@ export function Section3() {
       <Eyebrow index="Section 03" duration="~5 min">
         Rules
       </Eyebrow>
-      <SectionTitle>Vos conventions, écrites une fois.</SectionTitle>
+      <SectionTitle>Les conventions, écrites une fois.</SectionTitle>
       <SectionLead>
         Les rules sont un fichier markdown dans <code className="font-mono text-[14px]">.codex/rules</code>{" "}
-        que l'agent lit à chaque prompt. Vos conventions cessent d'être orales.
+        que l'agent lit à chaque prompt. Les conventions cessent d'être orales.
       </SectionLead>
 
       <div className="mt-14 grid gap-6 lg:grid-cols-2">
