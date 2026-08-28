@@ -1137,8 +1137,8 @@ export function Section8() {
       <KeyTakeaway
         items={[
           "Le bon prompt est spécifique, contraint et vérifiable.",
-          "L'agent propose, vous relisez — pas l'inverse.",
-          "Les rules et skills sont vos garde-fous : utilisez-les.",
+          "L'agent propose, on relit — pas l'inverse.",
+          "Les rules et skills sont des garde-fous : les utiliser.",
         ]}
       />
       <PrevNext current={8} />
