@@ -1096,7 +1096,7 @@ function FlipCard({ front, back }: { front: string; back: string }) {
             <span className="eyebrow text-emerald-300">Bon réflexe</span>
           </div>
           <p className="text-[15px] font-medium text-ink">{back}</p>
-          <span className="text-[11px] text-emerald-300/70">Cliquez pour revenir</span>
+          <span className="text-[11px] text-emerald-300/70">Cliquer pour revenir</span>
         </div>
       </div>
     </button>
