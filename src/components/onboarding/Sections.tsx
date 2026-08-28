@@ -205,7 +205,7 @@ export function Hero() {
         </h1>
 
         <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-ink sm:text-xl">
-          Vous utilisez déjà l'IA. Probablement au{" "}
+          Générer du code avec l'IA, c'est facile. Le faire au{" "}
           <span
             className="font-semibold italic"
             style={{
@@ -214,10 +214,10 @@ export function Hero() {
                 "linear-gradient(transparent 60%, oklch(0.78 0.09 60 / 0.5) 60%)",
             }}
           >
-            mauvais endroit
+            bon endroit
           </span>
-          . Neuf sections, un quiz, zéro connexion — pour passer du chat éphémère
-          à l'agent qui connaît votre repo.
+          , c'est autre chose. Neuf sections, un quiz, zéro connexion — pour passer du chat éphémère
+          à l'agent qui connaît le repo.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -363,8 +363,8 @@ export function Section1() {
       </Eyebrow>
       <SectionTitle>Le piège du chat web.</SectionTitle>
       <SectionLead>
-        Vous générez déjà du code avec Gemini ou ChatGPT. Le problème n'est pas le
-        modèle — c'est l'endroit. Un onglet de navigateur ne verra jamais votre
+        On génère déjà du code avec Gemini ou ChatGPT. Le problème n'est pas le
+        modèle — c'est l'endroit. Un onglet de navigateur ne verra jamais le
         repo.
       </SectionLead>
 
@@ -448,8 +448,8 @@ export function Section1() {
 
       <KeyTakeaway
         items={[
-          "Le chat web ne voit rien de votre repo — chaque prompt repart de zéro.",
-          "L'agent IDE lit vos fichiers, respecte vos conventions et édite pour vous.",
+          "Le chat web ne voit rien du repo — chaque prompt repart de zéro.",
+          "L'agent IDE lit les fichiers, respecte les conventions et édite de manière autonome.",
           "Même modèle sous le capot : la différence, c'est le contexte.",
         ]}
       />
@@ -503,7 +503,7 @@ export function Section2() {
             })}
           </div>
           <p className="mt-4 text-sm text-ink-soft">
-            Chaque siège = un morceau de contexte. Plus vous invitez, moins il reste
+            Chaque siège = un morceau de contexte. Plus on invite, moins il reste
             de place pour le raisonnement.
           </p>
         </div>
@@ -548,8 +548,8 @@ export function Section2() {
       <KeyTakeaway
         items={[
           "Un contexte plein n'est pas un contexte utile — c'est un contexte bruyant.",
-          "Attachez le fichier précis, pas le dossier entier.",
-          "Videz l'historique quand vous changez de sujet.",
+          "Attacher le fichier précis, pas le dossier entier.",
+          "Vider l'historique quand on change de sujet.",
         ]}
       />
       <PrevNext current={2} />
@@ -566,10 +566,10 @@ export function Section3() {
       <Eyebrow index="Section 03" duration="~5 min">
         Rules
       </Eyebrow>
-      <SectionTitle>Vos conventions, écrites une fois.</SectionTitle>
+      <SectionTitle>Les conventions, écrites une fois.</SectionTitle>
       <SectionLead>
         Les rules sont un fichier markdown dans <code className="font-mono text-[14px]">.codex/rules</code>{" "}
-        que l'agent lit à chaque prompt. Vos conventions cessent d'être orales.
+        que l'agent lit à chaque prompt. Les conventions cessent d'être orales.
       </SectionLead>
 
       <div className="mt-14 grid gap-6 lg:grid-cols-2">
@@ -715,7 +715,7 @@ export function Section4() {
           desc="Explore N options avant de coder, arbitre par contrainte."
         >
           Formule 3 à 5 approches, chacune avec trade-offs explicites. Attend
-          votre choix avant d'écrire une ligne.
+          le feu vert avant d'écrire une ligne.
         </SkillCard>
       </div>
 
@@ -826,7 +826,7 @@ export function Section5() {
             <p className="text-[15px] leading-relaxed text-ink-soft">
               Un plugin communautaire qui empile plusieurs skills utiles : debug
               systématique, revue, refactor guidé. À explorer, pas à imposer.
-              Servez-vous-en comme référence pour construire les vôtres.
+              À utiliser comme référence pour construire ses propres plugins.
             </p>
           </div>
 
@@ -856,7 +856,7 @@ export function Section5() {
         items={[
           "Un plugin = un pack, pas une extension IDE.",
           "Choisir la bonne piste (Rule/Skill/Plugin/MCP) évite 80% du bruit.",
-          "Inspirez-vous des plugins communautaires avant d'écrire le vôtre.",
+          "S'inspirer des plugins communautaires avant d'écrire le sien.",
         ]}
       />
       <PrevNext current={5} />
@@ -876,7 +876,7 @@ export function Section6() {
       <SectionTitle dark>Brancher l'agent au monde réel.</SectionTitle>
       <SectionLead dark>
         MCP est un protocole standard : l'agent parle à un serveur, le serveur
-        parle à un outil. Un adaptateur universel pour votre stack.
+        parle à un outil. Un adaptateur universel pour la stack.
       </SectionLead>
 
       {/* Flow diagram */}
@@ -1035,7 +1035,7 @@ export function Section7() {
         items={[
           "Un agent seul n'est qu'un raccourci — un système d'agents change l'échelle.",
           "Spécialisez, orchestrez, versionnez : chaque brique reste lisible.",
-          "La revue humaine reste la dernière porte — l'agent prépare, vous décidez.",
+          "La revue humaine reste la dernière porte — l'agent prépare, on décide.",
         ]}
       />
       <PrevNext current={7} />
@@ -1076,7 +1076,7 @@ function FlipCard({ front, back }: { front: string; back: string }) {
             <span className="eyebrow text-red-300">Erreur</span>
           </div>
           <p className="text-[15px] font-medium text-ink">{front}</p>
-          <span className="text-[11px] text-ink-soft">Cliquez pour voir le réflexe →</span>
+          <span className="text-[11px] text-ink-soft">Cliquer pour voir le réflexe →</span>
         </div>
         {/* back */}
         <div
@@ -1096,7 +1096,7 @@ function FlipCard({ front, back }: { front: string; back: string }) {
             <span className="eyebrow text-emerald-300">Bon réflexe</span>
           </div>
           <p className="text-[15px] font-medium text-ink">{back}</p>
-          <span className="text-[11px] text-emerald-300/70">Cliquez pour revenir</span>
+          <span className="text-[11px] text-emerald-300/70">Cliquer pour revenir</span>
         </div>
       </div>
     </button>
@@ -1119,7 +1119,7 @@ export function Section8() {
       </Eyebrow>
       <SectionTitle>Six pièges, six réflexes.</SectionTitle>
       <SectionLead>
-        Cliquez sur chaque carte : l'erreur au recto, le bon réflexe au verso.
+        Cliquer sur chaque carte : l'erreur au recto, le bon réflexe au verso.
       </SectionLead>
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -1130,15 +1130,15 @@ export function Section8() {
 
       <HumanCallout title="Rituel avant PR">
         Lancez <code className="font-mono text-[13px]">review-guidelines</code>{" "}
-        avant d'ouvrir votre PR. Trois minutes pour éviter deux heures de
+        avant d'ouvrir une PR. Trois minutes pour éviter deux heures de
         commentaires.
       </HumanCallout>
 
       <KeyTakeaway
         items={[
           "Le bon prompt est spécifique, contraint et vérifiable.",
-          "L'agent propose, vous relisez — pas l'inverse.",
-          "Les rules et skills sont vos garde-fous : utilisez-les.",
+          "L'agent propose, on relit — pas l'inverse.",
+          "Les rules et skills sont des garde-fous : les utiliser.",
         ]}
       />
       <PrevNext current={8} />
@@ -1155,9 +1155,9 @@ const QUIZ: Q[] = [
   { q: "Où mettre les conventions équipe pour qu'un agent les respecte ?", opts: ["Un canal Slack", "README.md", ".vscode/settings.json", ".codex/rules/"], correct: 3, explain: "Les fichiers .codex/rules/ sont lus à chaque prompt." },
   { q: "Un plugin Codex, c'est…", opts: ["Une extension VS Code", "Un modèle IA", "Un pack skills/agents/hooks/commands", "Un serveur cloud"], correct: 2, explain: "Un pack installable qui étend l'agent, pas l'IDE." },
   { q: "MCP sert à…", opts: ["Brancher un outil externe à l'agent", "Compresser le contexte", "Générer des tests", "Chiffrer les prompts"], correct: 0, explain: "MCP = protocole standard agent ↔ outil." },
-  { q: "Attacher un @dossier entier a pour effet…", opts: ["D'améliorer toujours la réponse", "De protéger vos secrets", "De désactiver les rules", "De consommer beaucoup de contexte"], correct: 3, explain: "Un dossier peut saturer la jauge — préférez le fichier précis." },
+  { q: "Attacher un @dossier entier a pour effet…", opts: ["D'améliorer toujours la réponse", "De protéger les secrets", "De désactiver les rules", "De consommer beaucoup de contexte"], correct: 3, explain: "Un dossier peut saturer la jauge — préférer le fichier précis." },
   { q: "Un skill, c'est…", opts: ["Un modèle fine-tuné", "Une extension IDE", "Un savoir-faire packagé activable", "Une commande Git"], correct: 2, explain: "Un skill = prompt + outils + mode opératoire, réutilisable." },
-  { q: "Vous avez ~40 guidelines. Que faire ?", opts: ["Générer 40 agents spécialisés", "Tout mettre dans une seule rule", "Ignorer, trop long", "Faire un README géant"], correct: 0, explain: "Un système d'agents scale mieux qu'une mega-rule." },
+  { q: "~40 guidelines à faire respecter. Que faire ?", opts: ["Générer 40 agents spécialisés", "Tout mettre dans une seule rule", "Ignorer, trop long", "Faire un README géant"], correct: 0, explain: "Un système d'agents scale mieux qu'une mega-rule." },
   { q: "Un agent propose un diff. Quelle est la bonne étape suivante ?", opts: ["Merger direct", "Copier dans un chat web", "Écrire une nouvelle rule", "Relire ligne à ligne"], correct: 3, explain: "L'agent se trompe — la relecture ligne à ligne reste obligatoire." },
   { q: "Pour brancher SQL Server à l'agent en lecture seule, on utilise…", opts: ["Un skill", "Un serveur MCP", "Une rule", "Un hook Git"], correct: 1, explain: "MCP est le bon canal pour un outil externe." },
   { q: "Avant d'ouvrir une PR, lancez…", opts: ["git push --force", "npm audit", "review-guidelines", "codex --reset"], correct: 2, explain: "Notre rituel équipe : trois minutes de review-guidelines." },
@@ -1298,7 +1298,7 @@ export function Section9() {
                 disabled={!answered}
                 className={!answered ? "pointer-events-none opacity-50" : ""}
               >
-                Voir mon score
+                Voir le score
               </ButtonPrimary>
             )}
           </div>
@@ -1347,8 +1347,8 @@ function QuizResult({ score, onReset }: { score: number; onReset: () => void }) 
         </h3>
         <p className="mx-auto mt-3 max-w-md text-[15px] text-ink-soft">
           {passed
-            ? "Vous avez les bons réflexes. Lancez votre premier projet Codex avec les rules équipe."
-            : "Reprenez les sections où vous avez trébuché. La courbe est courte."}
+            ? "Bons réflexes validés. Lancer un premier projet Codex avec les rules équipe."
+            : "Reprendre les sections ratées. La courbe est courte."}
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <ButtonPrimary onClick={onReset}>
