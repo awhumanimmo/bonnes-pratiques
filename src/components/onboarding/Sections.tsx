@@ -1035,7 +1035,7 @@ export function Section7() {
         items={[
           "Un agent seul n'est qu'un raccourci — un système d'agents change l'échelle.",
           "Spécialisez, orchestrez, versionnez : chaque brique reste lisible.",
-          "La revue humaine reste la dernière porte — l'agent prépare, vous décidez.",
+          "La revue humaine reste la dernière porte — l'agent prépare, on décide.",
         ]}
       />
       <PrevNext current={7} />
