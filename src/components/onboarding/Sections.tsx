@@ -826,7 +826,7 @@ export function Section5() {
             <p className="text-[15px] leading-relaxed text-ink-soft">
               Un plugin communautaire qui empile plusieurs skills utiles : debug
               systématique, revue, refactor guidé. À explorer, pas à imposer.
-              Servez-vous-en comme référence pour construire les vôtres.
+              À utiliser comme référence pour construire ses propres plugins.
             </p>
           </div>
 
