@@ -503,7 +503,7 @@ export function Section2() {
             })}
           </div>
           <p className="mt-4 text-sm text-ink-soft">
-            Chaque siège = un morceau de contexte. Plus vous invitez, moins il reste
+            Chaque siège = un morceau de contexte. Plus on invite, moins il reste
             de place pour le raisonnement.
           </p>
         </div>
