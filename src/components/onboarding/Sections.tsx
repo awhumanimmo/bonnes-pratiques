@@ -720,14 +720,13 @@ export function Section4() {
       </div>
 
       <HumanCallout title="Nos skills clés">
-        <div className="grid gap-3 sm:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2">
           {[
             { n: "1", t: "build-guideline-agents", d: "Génère les agents depuis Notion." },
             { n: "2", t: "review-guidelines", d: "Passe la PR au filtre équipe." },
-            { n: "3", t: "release-notes", d: "Récupère commits + Jira." },
           ].map((s) => (
             <div key={s.n} className="rounded-xl border border-amber-500/30 bg-white/[0.04] p-4">
-              <div className="mb-2 text-xs font-bold text-amber-300">
+              <div className="mb-2 text-xs font-bold text-amber-700">
                 Étape {s.n}
               </div>
               <div className="font-mono text-[13px] font-semibold text-ink">
