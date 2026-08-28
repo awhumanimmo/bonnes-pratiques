@@ -720,14 +720,13 @@ export function Section4() {
       </div>
 
       <HumanCallout title="Nos skills clés">
-        <div className="grid gap-3 sm:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2">
           {[
             { n: "1", t: "build-guideline-agents", d: "Génère les agents depuis Notion." },
             { n: "2", t: "review-guidelines", d: "Passe la PR au filtre équipe." },
-            { n: "3", t: "release-notes", d: "Récupère commits + Jira." },
           ].map((s) => (
             <div key={s.n} className="rounded-xl border border-amber-500/30 bg-white/[0.04] p-4">
-              <div className="mb-2 text-xs font-bold text-amber-300">
+              <div className="mb-2 text-xs font-bold text-amber-700">
                 Étape {s.n}
               </div>
               <div className="font-mono text-[13px] font-semibold text-ink">
@@ -778,9 +777,9 @@ export function Section5() {
         installable. Rien à voir avec une extension VS Code.
       </SectionLead>
 
-      <div className="mt-8 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4">
-        <div className="flex items-start gap-3 text-[14px] text-amber-200">
-          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
+      <div className="mt-8 rounded-xl border border-amber-600/40 bg-amber-500/15 p-4">
+        <div className="flex items-start gap-3 text-[14px] font-medium text-ink">
+          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-800" />
           <span>
             <strong>Attention :</strong> un plugin Codex n'est pas une extension VS
             Code. Il ne modifie pas l'IDE — il étend l'agent.
