@@ -1119,7 +1119,7 @@ export function Section8() {
       </Eyebrow>
       <SectionTitle>Six pièges, six réflexes.</SectionTitle>
       <SectionLead>
-        Cliquez sur chaque carte : l'erreur au recto, le bon réflexe au verso.
+        Cliquer sur chaque carte : l'erreur au recto, le bon réflexe au verso.
       </SectionLead>
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
