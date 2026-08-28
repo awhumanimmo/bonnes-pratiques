@@ -856,7 +856,7 @@ export function Section5() {
         items={[
           "Un plugin = un pack, pas une extension IDE.",
           "Choisir la bonne piste (Rule/Skill/Plugin/MCP) évite 80% du bruit.",
-          "Inspirez-vous des plugins communautaires avant d'écrire le vôtre.",
+          "S'inspirer des plugins communautaires avant d'écrire le sien.",
         ]}
       />
       <PrevNext current={5} />
