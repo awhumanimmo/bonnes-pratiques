@@ -715,7 +715,7 @@ export function Section4() {
           desc="Explore N options avant de coder, arbitre par contrainte."
         >
           Formule 3 à 5 approches, chacune avec trade-offs explicites. Attend
-          votre choix avant d'écrire une ligne.
+          le feu vert avant d'écrire une ligne.
         </SkillCard>
       </div>
 
