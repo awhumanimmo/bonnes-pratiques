@@ -777,9 +777,9 @@ export function Section5() {
         installable. Rien à voir avec une extension VS Code.
       </SectionLead>
 
-      <div className="mt-8 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4">
-        <div className="flex items-start gap-3 text-[14px] text-amber-200">
-          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
+      <div className="mt-8 rounded-xl border border-amber-600/40 bg-amber-500/15 p-4">
+        <div className="flex items-start gap-3 text-[14px] font-medium text-ink">
+          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-800" />
           <span>
             <strong>Attention :</strong> un plugin Codex n'est pas une extension VS
             Code. Il ne modifie pas l'IDE — il étend l'agent.
