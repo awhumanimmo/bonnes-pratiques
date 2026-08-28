@@ -1130,7 +1130,7 @@ export function Section8() {
 
       <HumanCallout title="Rituel avant PR">
         Lancez <code className="font-mono text-[13px]">review-guidelines</code>{" "}
-        avant d'ouvrir votre PR. Trois minutes pour éviter deux heures de
+        avant d'ouvrir une PR. Trois minutes pour éviter deux heures de
         commentaires.
       </HumanCallout>
 
