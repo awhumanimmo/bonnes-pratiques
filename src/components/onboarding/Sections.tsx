@@ -448,8 +448,8 @@ export function Section1() {
 
       <KeyTakeaway
         items={[
-          "Le chat web ne voit rien de votre repo — chaque prompt repart de zéro.",
-          "L'agent IDE lit vos fichiers, respecte vos conventions et édite pour vous.",
+          "Le chat web ne voit rien du repo — chaque prompt repart de zéro.",
+          "L'agent IDE lit les fichiers, respecte les conventions et édite de manière autonome.",
           "Même modèle sous le capot : la différence, c'est le contexte.",
         ]}
       />
