@@ -1,4 +1,4 @@
-import { useState, Fragment, type ReactNode } from "react";
+import { useState, Fragment, type ElementType, type ReactNode } from "react";
 import {
   ArrowRight,
   ArrowLeft,
@@ -18,6 +18,13 @@ import {
   Award,
   RotateCcw,
   Zap,
+  Users,
+  Bot,
+  Workflow,
+  Eye,
+  ShieldCheck,
+  BookOpen,
+  Search,
 } from "lucide-react";
 import {
   Section,
@@ -47,9 +54,7 @@ function PrevNext({ current }: { current: number }) {
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
           <span>
-            <span className="block text-[11px] uppercase tracking-wider">
-              Précédent
-            </span>
+            <span className="block text-[11px] uppercase tracking-wider">Précédent</span>
             <span className="font-medium text-ink">{prev.label}</span>
           </span>
         </a>
@@ -62,9 +67,7 @@ function PrevNext({ current }: { current: number }) {
           className="group ml-auto inline-flex items-center gap-2 text-right text-ink-soft transition-colors hover:text-ink"
         >
           <span>
-            <span className="block text-[11px] uppercase tracking-wider">
-              Suivant
-            </span>
+            <span className="block text-[11px] uppercase tracking-wider">Suivant</span>
             <span className="font-medium text-ink">{next.label}</span>
           </span>
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -89,7 +92,10 @@ export function Hero() {
         data-parallax="0.15"
         className="pointer-events-none absolute inset-0 bg-grid opacity-60"
       />
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-noise opacity-30 mix-blend-multiply" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-noise opacity-30 mix-blend-multiply"
+      />
       <div
         aria-hidden
         data-parallax="0.45"
@@ -102,7 +108,10 @@ export function Hero() {
         data-parallax="-0.35"
         data-parallax-x="0.05"
         className="pointer-events-none absolute right-1/4 bottom-1/4 h-[500px] w-[500px] rounded-full blur-[110px] animate-blob"
-        style={{ background: "radial-gradient(circle, rgba(135,168,120,0.28), transparent 60%)", animationDelay: "-6s" }}
+        style={{
+          background: "radial-gradient(circle, rgba(135,168,120,0.28), transparent 60%)",
+          animationDelay: "-6s",
+        }}
       />
       <div
         aria-hidden
@@ -168,10 +177,7 @@ export function Hero() {
         </span>
       </div>
 
-      <div
-        className="relative z-10 max-w-5xl text-center animate-fade-up"
-        data-parallax="-0.08"
-      >
+      <div className="relative z-10 max-w-5xl text-center animate-fade-up" data-parallax="-0.08">
         <span
           className="inline-flex items-center gap-2 rounded-sm px-4 py-1.5"
           style={{
@@ -210,8 +216,7 @@ export function Hero() {
             className="font-semibold italic"
             style={{
               color: "var(--indigo)",
-              backgroundImage:
-                "linear-gradient(transparent 60%, oklch(0.78 0.09 60 / 0.5) 60%)",
+              backgroundImage: "linear-gradient(transparent 60%, oklch(0.78 0.09 60 / 0.5) 60%)",
             }}
           >
             bon endroit
@@ -302,17 +307,15 @@ function IDEMock() {
     >
       <div className="flex items-center gap-2 border-b border-white/10 px-4 py-2.5">
         <div className="flex gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full" style={{background:"#e8a87c"}} />
-          <span className="h-2.5 w-2.5 rounded-full" style={{background:"#87a878"}} />
-          <span className="h-2.5 w-2.5 rounded-full" style={{background:"#c4654a"}} />
+          <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#e8a87c" }} />
+          <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#87a878" }} />
+          <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#c4654a" }} />
         </div>
-        <span className="ml-2 font-mono text-[11px] text-white/60">
-          UserService.cs · agent
-        </span>
+        <span className="ml-2 font-mono text-[11px] text-white/60">UserService.cs · agent</span>
       </div>
       <div className="grid grid-cols-[1fr_180px]">
         <pre className="border-r border-white/5 px-4 py-4 font-mono text-[12px] leading-relaxed text-white/85">
-{`public async Task<Result<User>>
+          {`public async Task<Result<User>>
   GetUserAsync(int id, CT ct)
 {
     var user = await _db.Users
@@ -322,21 +325,33 @@ function IDEMock() {
         : Result.Ok(user);
 }`}
         </pre>
-        <div className="space-y-2 p-3" style={{background:"oklch(1 0 0 / 0.03)"}}>
+        <div className="space-y-2 p-3" style={{ background: "oklch(1 0 0 / 0.03)" }}>
           <div className="flex items-center gap-1.5 text-[11px] font-semibold text-white/70">
-            <Sparkles className="h-3 w-3" style={{color: "#e8a87c"}} />
+            <Sparkles className="h-3 w-3" style={{ color: "#e8a87c" }} />
             Agent IA
           </div>
-          <div className="rounded-sm p-2 text-[11px] text-white/70" style={{background:"oklch(1 0 0 / 0.06)"}}>
+          <div
+            className="rounded-sm p-2 text-[11px] text-white/70"
+            style={{ background: "oklch(1 0 0 / 0.06)" }}
+          >
             @UserService.cs
           </div>
-          <div className="rounded-sm p-2 text-[11px] text-white" style={{background:"oklch(0.55 0.13 145 / 0.6)"}}>
+          <div
+            className="rounded-sm p-2 text-[11px] text-white"
+            style={{ background: "oklch(0.55 0.13 145 / 0.6)" }}
+          >
             ✓ Result&lt;T&gt;
           </div>
-          <div className="rounded-sm p-2 text-[11px] text-white" style={{background:"oklch(0.55 0.13 145 / 0.6)"}}>
+          <div
+            className="rounded-sm p-2 text-[11px] text-white"
+            style={{ background: "oklch(0.55 0.13 145 / 0.6)" }}
+          >
             ✓ async / CT
           </div>
-          <div className="rounded-sm p-2 text-[11px] text-white" style={{background:"oklch(0.55 0.13 145 / 0.6)"}}>
+          <div
+            className="rounded-sm p-2 text-[11px] text-white"
+            style={{ background: "oklch(0.55 0.13 145 / 0.6)" }}
+          >
             ✓ FR
           </div>
         </div>
@@ -363,9 +378,8 @@ export function Section1() {
       </Eyebrow>
       <SectionTitle>Le piège du chat web.</SectionTitle>
       <SectionLead>
-        On génère déjà du code avec Gemini ou ChatGPT. Le problème n'est pas le
-        modèle — c'est l'endroit. Un onglet de navigateur ne verra jamais le
-        repo.
+        On génère déjà du code avec Gemini ou ChatGPT. Le problème n'est pas le modèle — c'est
+        l'endroit. Un onglet de navigateur ne verra jamais le repo.
       </SectionLead>
 
       <div className="mt-14 overflow-hidden rounded-2xl border border-hairline bg-surface-raised shadow-soft">
@@ -397,9 +411,7 @@ export function Section1() {
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <div>
             <div className="eyebrow mb-1">Même prompt</div>
-            <h3 className="text-xl font-semibold text-ink">
-              "Récupère un utilisateur par ID"
-            </h3>
+            <h3 className="text-xl font-semibold text-ink">"Récupère un utilisateur par ID"</h3>
           </div>
           <div className="inline-flex rounded-full border border-hairline bg-ink/[0.03] p-1 text-sm font-medium">
             <button
@@ -422,7 +434,7 @@ export function Section1() {
         </div>
         {!after ? (
           <CodeBlock filename="chat-web.cs" language="c#">
-{`public User GetUser(int id)
+            {`public User GetUser(int id)
 {
     var user = db.Users.FirstOrDefault(u => u.Id == id);
     if (user == null) throw new Exception("Not found");
@@ -431,7 +443,7 @@ export function Section1() {
           </CodeBlock>
         ) : (
           <CodeBlock filename="UserService.cs" language="c#">
-{`public async Task<Result<User>> GetUserAsync(
+            {`public async Task<Result<User>> GetUserAsync(
     int id, CancellationToken ct)
 {
     var user = await _db.Users
@@ -468,10 +480,7 @@ export function Section2() {
     { key: "hist", label: "historique chat", cost: 40 },
   ];
   const [active, setActive] = useState<Record<string, boolean>>({});
-  const total = items.reduce(
-    (s, i) => s + (active[i.key] ? i.cost : 0),
-    0,
-  );
+  const total = items.reduce((s, i) => s + (active[i.key] ? i.cost : 0), 0);
   const capped = Math.min(100, total);
   return (
     <Section id="s2" num="02">
@@ -480,9 +489,8 @@ export function Section2() {
       </Eyebrow>
       <SectionTitle>Tokens & auditorium.</SectionTitle>
       <SectionLead>
-        L'agent a une jauge de contexte finie. Chaque fichier attaché, chaque
-        message d'historique, chaque outil branché consomme une place dans
-        l'auditorium.
+        L'agent a une jauge de contexte finie. Chaque fichier attaché, chaque message d'historique,
+        chaque outil branché consomme une place dans l'auditorium.
       </SectionLead>
 
       <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_1fr]">
@@ -495,16 +503,14 @@ export function Section2() {
               return (
                 <div
                   key={i}
-                  className={`aspect-square rounded ${
-                    filled ? "bg-gradient-brand" : "bg-ink/5"
-                  }`}
+                  className={`aspect-square rounded ${filled ? "bg-gradient-brand" : "bg-ink/5"}`}
                 />
               );
             })}
           </div>
           <p className="mt-4 text-sm text-ink-soft">
-            Chaque siège = un morceau de contexte. Plus on invite, moins il reste
-            de place pour le raisonnement.
+            Chaque siège = un morceau de contexte. Plus on invite, moins il reste de place pour le
+            raisonnement.
           </p>
         </div>
         {/* Budget gauge */}
@@ -527,9 +533,7 @@ export function Section2() {
               <Chip
                 key={it.key}
                 active={active[it.key]}
-                onClick={() =>
-                  setActive((p) => ({ ...p, [it.key]: !p[it.key] }))
-                }
+                onClick={() => setActive((p) => ({ ...p, [it.key]: !p[it.key] }))}
               >
                 <span className="font-mono">{it.label}</span>
                 <span className="ml-1.5 opacity-70">+{it.cost}%</span>
@@ -568,8 +572,9 @@ export function Section3() {
       </Eyebrow>
       <SectionTitle>Les conventions, écrites une fois.</SectionTitle>
       <SectionLead>
-        Les rules sont un fichier markdown dans <code className="font-mono text-[14px]">.codex/rules</code>{" "}
-        que l'agent lit à chaque prompt. Les conventions cessent d'être orales.
+        Les rules sont un fichier markdown dans{" "}
+        <code className="font-mono text-[14px]">.codex/rules</code> que l'agent lit à chaque prompt.
+        Les conventions cessent d'être orales.
       </SectionLead>
 
       <div className="mt-14 grid gap-6 lg:grid-cols-2">
@@ -579,7 +584,7 @@ export function Section3() {
             <span className="text-sm text-ink-soft">Aucune rule</span>
           </div>
           <CodeBlock filename="Handler.cs" language="c#">
-{`public User Handle(Request req)
+            {`public User Handle(Request req)
 {
     if (req == null) throw new
         ArgumentNullException();
@@ -594,7 +599,7 @@ export function Section3() {
             <span className="text-sm text-ink-soft">Avec .codex/rules</span>
           </div>
           <CodeBlock filename="Handler.cs" language="c#">
-{`public async Task<Result<User>>
+            {`public async Task<Result<User>>
   HandleAsync(Request req, CT ct)
 {
     if (req is null)
@@ -608,7 +613,7 @@ export function Section3() {
 
       <div className="mt-8">
         <CodeBlock filename=".codex/rules/csharp.md" language="md">
-{`# Conventions C# — Équipe Human
+          {`# Conventions C# — Équipe Human
 
 - Toujours retourner Result<T>, jamais lever d'exception métier.
 - Toutes les méthodes I/O sont async et acceptent un CancellationToken.
@@ -619,9 +624,9 @@ export function Section3() {
       </div>
 
       <HumanCallout title="Nos rules par défaut">
-        Result&lt;T&gt; systématique · messages d'erreur en français · async/CT
-        obligatoires · EditorConfig équipe · pattern Repository côté data.
-        Cloné automatiquement dans chaque nouveau repo.
+        Result&lt;T&gt; systématique · messages d'erreur en français · async/CT obligatoires ·
+        EditorConfig équipe · pattern Repository côté data. Cloné automatiquement dans chaque
+        nouveau repo.
       </HumanCallout>
 
       <KeyTakeaway
@@ -686,8 +691,8 @@ export function Section4() {
       </Eyebrow>
       <SectionTitle>Des expertises réutilisables.</SectionTitle>
       <SectionLead>
-        Un skill est une compétence packagée : un prompt + des outils + un mode
-        opératoire. L'agent l'active quand il en a besoin.
+        Un skill est une compétence packagée : un prompt + des outils + un mode opératoire. L'agent
+        l'active quand il en a besoin.
       </SectionLead>
 
       <div className="mt-12 grid gap-4">
@@ -696,26 +701,24 @@ export function Section4() {
           tag="Skill · debug"
           desc="Reproduit le bug, isole, trace, propose un correctif minimal."
         >
-          Isole la variable en cause, ajoute des logs ciblés, propose un test de
-          régression, puis le fix. Ne modifie jamais plus de trois fichiers sans
-          demander.
+          Isole la variable en cause, ajoute des logs ciblés, propose un test de régression, puis le
+          fix. Ne modifie jamais plus de trois fichiers sans demander.
         </SkillCard>
         <SkillCard
           name="review-guidelines"
           tag="Skill · review"
           desc="Passe une PR au crible des guidelines équipe avant merge."
         >
-          Charge les ~40 agents guideline-*, dispatche par domaine (data, API,
-          UI), rend un rapport structuré avec badges Blocking / Warning /
-          Suggestion.
+          Charge les ~40 agents guideline-*, dispatche par domaine (data, API, UI), rend un rapport
+          structuré avec badges Blocking / Warning / Suggestion.
         </SkillCard>
         <SkillCard
           name="brainstorming"
           tag="Skill · design"
           desc="Explore N options avant de coder, arbitre par contrainte."
         >
-          Formule 3 à 5 approches, chacune avec trade-offs explicites. Attend
-          le feu vert avant d'écrire une ligne.
+          Formule 3 à 5 approches, chacune avec trade-offs explicites. Attend le feu vert avant
+          d'écrire une ligne.
         </SkillCard>
       </div>
 
@@ -726,12 +729,8 @@ export function Section4() {
             { n: "2", t: "review-guidelines", d: "Passe la PR au filtre équipe." },
           ].map((s) => (
             <div key={s.n} className="rounded-xl border border-amber-500/30 bg-white/[0.04] p-4">
-              <div className="mb-2 text-xs font-bold text-amber-700">
-                Étape {s.n}
-              </div>
-              <div className="font-mono text-[13px] font-semibold text-ink">
-                {s.t}
-              </div>
+              <div className="mb-2 text-xs font-bold text-amber-700">Étape {s.n}</div>
+              <div className="font-mono text-[13px] font-semibold text-ink">{s.t}</div>
               <div className="mt-1 text-[13px] text-ink/70">{s.d}</div>
             </div>
           ))}
@@ -773,16 +772,16 @@ export function Section5() {
       </Eyebrow>
       <SectionTitle>Un plugin, c'est un pack.</SectionTitle>
       <SectionLead>
-        Skills, agents, hooks et commandes — regroupés dans un dossier
-        installable. Rien à voir avec une extension VS Code.
+        Skills, agents, hooks et commandes — regroupés dans un dossier installable. Rien à voir avec
+        une extension VS Code.
       </SectionLead>
 
       <div className="mt-8 rounded-xl border border-amber-600/40 bg-amber-500/15 p-4">
         <div className="flex items-start gap-3 text-[14px] font-medium text-ink">
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-800" />
           <span>
-            <strong>Attention :</strong> un plugin Codex n'est pas une extension VS
-            Code. Il ne modifie pas l'IDE — il étend l'agent.
+            <strong>Attention :</strong> un plugin Codex n'est pas une extension VS Code. Il ne
+            modifie pas l'IDE — il étend l'agent.
           </span>
         </div>
       </div>
@@ -790,9 +789,7 @@ export function Section5() {
       {/* Layered box */}
       <div className="mt-14 grid items-center gap-10 lg:grid-cols-[1fr_1fr]">
         <div className="relative mx-auto flex w-full max-w-sm flex-col gap-3">
-          <div className="mb-2 text-center font-mono text-xs text-ink-soft">
-            plugin-human/
-          </div>
+          <div className="mb-2 text-center font-mono text-xs text-ink-soft">plugin-human/</div>
           {layers.map((l, i) => (
             <div
               key={l.name}
@@ -804,9 +801,7 @@ export function Section5() {
             >
               <div className="rounded-[11px] bg-surface-raised px-5 py-4">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-sm font-semibold text-ink">
-                    {l.name}
-                  </span>
+                  <span className="font-mono text-sm font-semibold text-ink">{l.name}</span>
                   <Layers className="h-4 w-4 text-ink-soft" />
                 </div>
                 <div className="mt-0.5 text-[13px] text-ink-soft">{l.desc}</div>
@@ -818,14 +813,12 @@ export function Section5() {
           <div className="rounded-2xl border border-hairline bg-surface-raised p-6 shadow-soft">
             <div className="mb-4 flex items-center gap-2">
               <Badge tone="brand">Exemple</Badge>
-              <span className="text-sm font-medium text-ink">
-                Superpowers
-              </span>
+              <span className="text-sm font-medium text-ink">Superpowers</span>
             </div>
             <p className="text-[15px] leading-relaxed text-ink-soft">
-              Un plugin communautaire qui empile plusieurs skills utiles : debug
-              systématique, revue, refactor guidé. À explorer, pas à imposer.
-              À utiliser comme référence pour construire ses propres plugins.
+              Un plugin communautaire qui empile plusieurs skills utiles : debug systématique,
+              revue, refactor guidé. À explorer, pas à imposer. À utiliser comme référence pour
+              construire ses propres plugins.
             </p>
           </div>
 
@@ -874,8 +867,8 @@ export function Section6() {
       </Eyebrow>
       <SectionTitle dark>Brancher l'agent au monde réel.</SectionTitle>
       <SectionLead dark>
-        MCP est un protocole standard : l'agent parle à un serveur, le serveur
-        parle à un outil. Un adaptateur universel pour la stack.
+        MCP est un protocole standard : l'agent parle à un serveur, le serveur parle à un outil. Un
+        adaptateur universel pour la stack.
       </SectionLead>
 
       {/* Flow diagram */}
@@ -886,9 +879,7 @@ export function Section6() {
           { t: "SonarQube", d: "Rend un résultat structuré", icon: Cpu },
         ].map((n, i) => (
           <Fragment key={n.t}>
-            <div
-              className="rounded-2xl border border-white/10 bg-surface-raised/[0.04] p-5 backdrop-blur"
-            >
+            <div className="rounded-2xl border border-white/10 bg-surface-raised/[0.04] p-5 backdrop-blur">
               <div className="mb-2 flex items-center gap-2">
                 <n.icon className="h-4 w-4 text-indigo-300" />
                 <span className="eyebrow text-white/60">Étape 0{i + 1}</span>
@@ -947,94 +938,243 @@ export function Section6() {
 }
 
 /* ==============================================================
- * SECTION 7 — Agents
+ * SECTION 7 — Agents & Orchestrateur
  * ============================================================ */
-export function Section7() {
-  const pipe = [
-    { t: "Notion", d: "Guidelines source" },
-    { t: "Export .md", d: "Publish pipeline" },
-    { t: "Repo Agents", d: "Versionné, PRs" },
-    { t: "build-guideline-agents", d: "Skill de génération" },
-    { t: "~40 agents guideline-*", d: "Un par domaine" },
-    { t: "Orchestrateur", d: "Dispatch par PR" },
-    { t: "review-guidelines", d: "Skill runner" },
-    { t: "Rapport", d: ".codex/guideline-review/" },
+function AgentRoleCard({
+  icon: Icon,
+  title,
+  role,
+  mission,
+  color,
+}: {
+  icon: ElementType;
+  title: string;
+  role: string;
+  mission: string;
+  color: "indigo" | "terracotta" | "sage" | "cyan" | "amber" | "violet";
+}) {
+  const colorMap = {
+    indigo: "var(--indigo)",
+    terracotta: "var(--terracotta)",
+    sage: "var(--sage)",
+    cyan: "var(--cyan)",
+    amber: "var(--amber)",
+    violet: "var(--violet)",
+  };
+  const accentColor = colorMap[color];
+
+  return (
+    <div
+      className="relative flex flex-col gap-4 rounded-xl bg-surface-raised p-5 shadow-soft"
+      style={{ border: "1.5px solid var(--ink)", boxShadow: `4px 4px 0 0 ${accentColor}` }}
+    >
+      <div
+        className="grid h-10 w-10 place-items-center rounded-sm text-white"
+        style={{ background: accentColor, border: "1.5px solid var(--ink)" }}
+      >
+        <Icon className="h-5 w-5" />
+      </div>
+      <div>
+        <div className="font-mono text-[11px] font-bold uppercase tracking-widest text-ink-soft">
+          {role}
+        </div>
+        <h3
+          className="mt-1 text-lg font-bold text-ink"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          {title}
+        </h3>
+      </div>
+      <p className="text-[14px] leading-relaxed text-ink-soft">{mission}</p>
+    </div>
+  );
+}
+
+function OrchestratorDiagram() {
+  const agents = [
+    { name: "Architecte", color: "var(--indigo)" },
+    { name: "Reviewer", color: "var(--terracotta)" },
+    { name: "Test", color: "var(--sage)" },
+    { name: "Docs", color: "var(--cyan)" },
+    { name: "Sécurité", color: "var(--amber)" },
+    { name: "Perf", color: "var(--violet)" },
   ];
+
+  return (
+    <div className="mt-14 rounded-xl border border-hairline bg-surface-raised p-6 shadow-soft sm:p-8">
+      <div className="eyebrow mb-6">Le principe d'orchestrateur</div>
+      <div className="flex flex-col items-center gap-8 lg:flex-row lg:justify-center">
+        <div
+          className="relative z-10 flex h-40 w-40 shrink-0 flex-col items-center justify-center rounded-sm text-center"
+          style={{
+            background: "var(--indigo)",
+            border: "1.5px solid var(--ink)",
+            boxShadow: "5px 5px 0 0 var(--ink)",
+          }}
+        >
+          <Workflow className="h-8 w-8 text-white" />
+          <div className="mt-2 font-mono text-[12px] font-bold uppercase tracking-widest text-white">
+            Orchestrateur
+          </div>
+          <div className="mt-1 px-2 text-[11px] text-white/80">Route · Séquence · Synthèse</div>
+        </div>
+
+        <div className="grid flex-1 grid-cols-2 gap-3 sm:grid-cols-3">
+          {agents.map((agent) => (
+            <div
+              key={agent.name}
+              className="flex items-center gap-2 rounded-sm px-3 py-2.5 text-[13px] font-semibold text-ink"
+              style={{ background: "oklch(0.22 0.03 40 / 0.04)", border: "1.5px solid var(--ink)" }}
+            >
+              <span className="h-2.5 w-2.5 rounded-full" style={{ background: agent.color }} />@
+              {agent.name.toLowerCase()}
+            </div>
+          ))}
+        </div>
+      </div>
+      <p className="mt-8 text-center text-[14px] text-ink-soft">
+        L'orchestrateur ne remplace aucun agent. Il reçoit l'événement, choisit qui intervenir,
+        impose l'ordre d'exécution et consolide le résultat.
+      </p>
+    </div>
+  );
+}
+
+function ReviewWorkflow() {
+  const steps = [
+    { label: "PR ouverte", detail: "feat/orders-pipeline", icon: GitPullRequest },
+    { label: "Analyse du diff", detail: "Quels fichiers ? Quels patterns ?", icon: Search },
+    { label: "Dispatch agents", detail: "Architecte · Test · Sécurité", icon: Bot },
+    { label: "Rapports parallèles", detail: "Chaque agent écrit son verdict", icon: FileText },
+    { label: "Synthèse", detail: "Un rapport consolidé dans .codex/review/", icon: Layers },
+    { label: "Décision humaine", detail: "Lire, corriger, approuver", icon: Users },
+  ];
+
+  return (
+    <div className="mt-14">
+      <div className="eyebrow mb-6">Exemple concret · skill de review</div>
+      <div className="relative">
+        <div
+          className="absolute top-0 bottom-0 left-[19px] hidden w-[2px] sm:block"
+          style={{ background: "var(--indigo)" }}
+        />
+        <div className="space-y-4">
+          {steps.map((step, index) => (
+            <div key={step.label} className="relative flex items-start gap-4 sm:gap-6">
+              <div
+                className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-sm text-white"
+                style={{
+                  background: index === steps.length - 1 ? "var(--terracotta)" : "var(--indigo)",
+                  border: "1.5px solid var(--ink)",
+                  boxShadow: "2px 2px 0 0 var(--ink)",
+                }}
+              >
+                <step.icon className="h-4 w-4" />
+              </div>
+              <div
+                className="flex-1 rounded-xl bg-surface-raised p-4 shadow-soft"
+                style={{ border: "1.5px solid var(--ink)", boxShadow: "3px 3px 0 0 var(--ink)" }}
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h4 className="text-[15px] font-bold text-ink">{step.label}</h4>
+                  <span className="font-mono text-[11px] text-ink-soft">
+                    Étape {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <p className="mt-1 text-[14px] text-ink-soft">{step.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function Section7() {
+  const roles = [
+    {
+      icon: Layers,
+      title: "Agent Architecte",
+      role: "Cohérence",
+      mission:
+        "Garde les patterns du repo à jour, valide les ADR et refuse les dérives techniques avant qu'elles ne passent en production.",
+      color: "indigo" as const,
+    },
+    {
+      icon: Eye,
+      title: "Agent Reviewer",
+      role: "Relecture",
+      mission:
+        "Relit chaque diff, détecte les anti-patterns, signale les blocs de code dupliqués et force la lisibilité.",
+      color: "terracotta" as const,
+    },
+    {
+      icon: Check,
+      title: "Agent Test",
+      role: "Qualité",
+      mission:
+        "Génère les tests manquants, vérifie la couverture et propose des scénarios de régression pour chaque modification.",
+      color: "sage" as const,
+    },
+    {
+      icon: BookOpen,
+      title: "Agent Docs",
+      role: "Documentation",
+      mission:
+        "Met à jour les README, les changelogs et les commentaires publics pour que le code reste compréhensible.",
+      color: "cyan" as const,
+    },
+    {
+      icon: ShieldCheck,
+      title: "Agent Sécurité",
+      role: "Protection",
+      mission:
+        "Scanne les secrets en dur, les injections SQL, les permissions mal configurées et les dépendances vulnérables.",
+      color: "amber" as const,
+    },
+    {
+      icon: Zap,
+      title: "Agent Perf",
+      role: "Performance",
+      mission:
+        "Identifie les requêtes N+1, les allocations inutiles et les hotspots à optimiser avant qu'ils ne coûtent cher.",
+      color: "violet" as const,
+    },
+  ];
+
   return (
     <Section id="s7" num="07">
       <Eyebrow index="Section 07" duration="~8 min">
         Système d'agents
       </Eyebrow>
-      <SectionTitle>Un agent, plusieurs agents, un système.</SectionTitle>
+      <SectionTitle>Une équipe d'agents.</SectionTitle>
       <SectionLead>
-        Un agent n'est utile qu'à petite dose. En équipe, ce qui change la donne
-        c'est de les orchestrer — chacun spécialisé, tous coordonnés par un skill.
+        Un agent seul est un assistant. Plusieurs agents spécialisés, coordonnés par un
+        orchestrateur, forment un système capable de produire, vérifier et documenter du code.
       </SectionLead>
 
-      {/* Pipeline */}
-      <div className="mt-14 overflow-x-auto">
-        <div className="flex min-w-[900px] items-stretch gap-3">
-          {pipe.map((n, i) => (
-            <Fragment key={n.t}>
-              <div
-                className="w-40 shrink-0 rounded-xl border border-hairline bg-surface-raised p-4 shadow-soft"
-              >
-                <div className="eyebrow mb-1">Étape {String(i + 1).padStart(2, "0")}</div>
-                <div className="font-mono text-[13px] font-semibold text-ink">{n.t}</div>
-                <div className="mt-1 text-[12px] text-ink-soft">{n.d}</div>
-              </div>
-              {i < pipe.length - 1 && (
-                <div className="flex items-center">
-                  <div className="h-px w-3 bg-gradient-to-r from-indigo-400 to-violet-400" />
-                </div>
-              )}
-            </Fragment>
-          ))}
-        </div>
+      <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {roles.map((role) => (
+          <AgentRoleCard key={role.title} {...role} />
+        ))}
       </div>
+
+      <OrchestratorDiagram />
+      <ReviewWorkflow />
 
       <HumanCallout title="Pourquoi cette pipeline chez nous">
-        Les guidelines vivent dans Notion (edité par les leads). Un job publie en
-        markdown. <code className="font-mono text-[13px]">build-guideline-agents</code>{" "}
-        régénère nos ~40 agents dans le repo. À l'ouverture d'une PR,
-        l'orchestrateur dispatche automatiquement les bons agents et écrit un
-        rapport dans <code className="font-mono text-[13px]">.codex/guideline-review/</code>.
+        Sans orchestrateur, chaque agent travaille en silo. Avec un orchestrateur, l'ouverture d'une
+        PR déclenche automatiquement le bon ensemble d'agents, dans le bon ordre, avec les bonnes
+        règles. Le skill de review devient un processus d'équipe, pas une commande qu'on oublie de
+        lancer.
       </HumanCallout>
-
-      {/* Sub visual: PR review */}
-      <div className="mt-10 overflow-hidden rounded-2xl border border-hairline bg-surface-raised shadow-soft">
-        <div className="flex items-center gap-3 border-b border-hairline bg-ink/[0.02] px-6 py-4">
-          <GitPullRequest className="h-5 w-5 text-indigo-500" />
-          <div className="min-w-0">
-            <div className="text-sm font-semibold text-ink">
-              PR #842 · feat(orders): async pipeline
-            </div>
-            <div className="text-xs text-ink-soft">3 agents dispatchés en parallèle</div>
-          </div>
-          <span className="ml-auto text-xs text-ink-soft">il y a 12s</span>
-        </div>
-        <div className="divide-y divide-hairline">
-          {[
-            { agent: "linter", tone: "success" as const, tag: "Suggestion", msg: "Extraire la constante MaxRetries dans la config." },
-            { agent: "ef-core", tone: "warning" as const, tag: "Warning", msg: "AsNoTracking manquant sur GetOrdersAsync." },
-            { agent: "bunit", tone: "danger" as const, tag: "Blocking", msg: "Composant OrderList sans test de rendu." },
-          ].map((f) => (
-            <div key={f.agent} className="grid grid-cols-[auto_1fr_auto] items-start gap-4 px-6 py-4">
-              <span className="mt-0.5 font-mono text-[12px] font-semibold text-indigo-600">
-                @{f.agent}
-              </span>
-              <span className="text-[14px] text-ink">{f.msg}</span>
-              <Badge tone={f.tone}>{f.tag}</Badge>
-            </div>
-          ))}
-        </div>
-      </div>
 
       <KeyTakeaway
         items={[
-          "Un agent seul n'est qu'un raccourci — un système d'agents change l'échelle.",
-          "Spécialisez, orchestrez, versionnez : chaque brique reste lisible.",
-          "La revue humaine reste la dernière porte — l'agent prépare, on décide.",
+          "Un agent = un rôle précis. Pas de couteau suisse, pas d'agent qui fait tout.",
+          "L'orchestrateur route le travail au bon agent au bon moment, puis consolide les résultats.",
+          "Le skill de review montre comment passer de l'aide ponctuelle à un processus fiable.",
         ]}
       />
       <PrevNext current={7} />
@@ -1104,12 +1244,27 @@ function FlipCard({ front, back }: { front: string; back: string }) {
 
 export function Section8() {
   const cards = [
-    { front: "Copier-coller depuis Gemini sans relire.", back: "Ouvrir un chat agent avec le fichier attaché, itérer." },
-    { front: "Prompt vague : « fais mieux ».", back: "Contexte + contrainte + critère d'acceptation." },
+    {
+      front: "Copier-coller depuis Gemini sans relire.",
+      back: "Ouvrir un chat agent avec le fichier attaché, itérer.",
+    },
+    {
+      front: "Prompt vague : « fais mieux ».",
+      back: "Contexte + contrainte + critère d'acceptation.",
+    },
     { front: "Pas de rules dans le repo.", back: "5 règles utiles, versionnées, dès le sprint 1." },
-    { front: "« Refactorise tout le projet ».", back: "Un fichier à la fois, avec test de non-régression." },
-    { front: "Ignorer le MCP SQL et deviner le schéma.", back: "Laisser l'agent introspecter en read-only." },
-    { front: "Accepter le diff sans lecture ligne à ligne.", back: "Toujours relire le diff, l'agent se trompe." },
+    {
+      front: "« Refactorise tout le projet ».",
+      back: "Un fichier à la fois, avec test de non-régression.",
+    },
+    {
+      front: "Ignorer le MCP SQL et deviner le schéma.",
+      back: "Laisser l'agent introspecter en read-only.",
+    },
+    {
+      front: "Accepter le diff sans lecture ligne à ligne.",
+      back: "Toujours relire le diff, l'agent se trompe.",
+    },
   ];
   return (
     <Section id="s8" num="08">
@@ -1128,9 +1283,8 @@ export function Section8() {
       </div>
 
       <HumanCallout title="Rituel avant PR">
-        Lancez <code className="font-mono text-[13px]">review-guidelines</code>{" "}
-        avant d'ouvrir une PR. Trois minutes pour éviter deux heures de
-        commentaires.
+        Lancez <code className="font-mono text-[13px]">review-guidelines</code> avant d'ouvrir une
+        PR. Trois minutes pour éviter deux heures de commentaires.
       </HumanCallout>
 
       <KeyTakeaway
@@ -1150,23 +1304,101 @@ export function Section8() {
  * ============================================================ */
 type Q = { q: string; opts: string[]; correct: number; explain: string };
 const QUIZ: Q[] = [
-  { q: "Quelle est la vraie différence entre chat web et agent IDE ?", opts: ["L'accès au contexte du repo", "Le modèle utilisé", "Le prix", "La vitesse de réponse"], correct: 0, explain: "Même famille de modèles sous le capot — c'est l'accès au contexte qui change tout." },
-  { q: "Où mettre les conventions équipe pour qu'un agent les respecte ?", opts: ["Un canal Slack", "README.md", ".vscode/settings.json", ".codex/rules/"], correct: 3, explain: "Les fichiers .codex/rules/ sont lus à chaque prompt." },
-  { q: "Un plugin Codex, c'est…", opts: ["Une extension VS Code", "Un modèle IA", "Un pack skills/agents/hooks/commands", "Un serveur cloud"], correct: 2, explain: "Un pack installable qui étend l'agent, pas l'IDE." },
-  { q: "MCP sert à…", opts: ["Brancher un outil externe à l'agent", "Compresser le contexte", "Générer des tests", "Chiffrer les prompts"], correct: 0, explain: "MCP = protocole standard agent ↔ outil." },
-  { q: "Attacher un @dossier entier a pour effet…", opts: ["D'améliorer toujours la réponse", "De protéger les secrets", "De désactiver les rules", "De consommer beaucoup de contexte"], correct: 3, explain: "Un dossier peut saturer la jauge — préférer le fichier précis." },
-  { q: "Un skill, c'est…", opts: ["Un modèle fine-tuné", "Une extension IDE", "Un savoir-faire packagé activable", "Une commande Git"], correct: 2, explain: "Un skill = prompt + outils + mode opératoire, réutilisable." },
-  { q: "~40 guidelines à faire respecter. Que faire ?", opts: ["Générer 40 agents spécialisés", "Tout mettre dans une seule rule", "Ignorer, trop long", "Faire un README géant"], correct: 0, explain: "Un système d'agents scale mieux qu'une mega-rule." },
-  { q: "Un agent propose un diff. Quelle est la bonne étape suivante ?", opts: ["Merger direct", "Copier dans un chat web", "Écrire une nouvelle rule", "Relire ligne à ligne"], correct: 3, explain: "L'agent se trompe — la relecture ligne à ligne reste obligatoire." },
-  { q: "Pour brancher SQL Server à l'agent en lecture seule, on utilise…", opts: ["Un skill", "Un serveur MCP", "Une rule", "Un hook Git"], correct: 1, explain: "MCP est le bon canal pour un outil externe." },
-  { q: "Avant d'ouvrir une PR, lancez…", opts: ["git push --force", "npm audit", "review-guidelines", "codex --reset"], correct: 2, explain: "Notre rituel équipe : trois minutes de review-guidelines." },
+  {
+    q: "Quelle est la vraie différence entre chat web et agent IDE ?",
+    opts: ["L'accès au contexte du repo", "Le modèle utilisé", "Le prix", "La vitesse de réponse"],
+    correct: 0,
+    explain: "Même famille de modèles sous le capot — c'est l'accès au contexte qui change tout.",
+  },
+  {
+    q: "Où mettre les conventions équipe pour qu'un agent les respecte ?",
+    opts: ["Un canal Slack", "README.md", ".vscode/settings.json", ".codex/rules/"],
+    correct: 3,
+    explain: "Les fichiers .codex/rules/ sont lus à chaque prompt.",
+  },
+  {
+    q: "Un plugin Codex, c'est…",
+    opts: [
+      "Une extension VS Code",
+      "Un modèle IA",
+      "Un pack skills/agents/hooks/commands",
+      "Un serveur cloud",
+    ],
+    correct: 2,
+    explain: "Un pack installable qui étend l'agent, pas l'IDE.",
+  },
+  {
+    q: "MCP sert à…",
+    opts: [
+      "Brancher un outil externe à l'agent",
+      "Compresser le contexte",
+      "Générer des tests",
+      "Chiffrer les prompts",
+    ],
+    correct: 0,
+    explain: "MCP = protocole standard agent ↔ outil.",
+  },
+  {
+    q: "Attacher un @dossier entier a pour effet…",
+    opts: [
+      "D'améliorer toujours la réponse",
+      "De protéger les secrets",
+      "De désactiver les rules",
+      "De consommer beaucoup de contexte",
+    ],
+    correct: 3,
+    explain: "Un dossier peut saturer la jauge — préférer le fichier précis.",
+  },
+  {
+    q: "Un skill, c'est…",
+    opts: [
+      "Un modèle fine-tuné",
+      "Une extension IDE",
+      "Un savoir-faire packagé activable",
+      "Une commande Git",
+    ],
+    correct: 2,
+    explain: "Un skill = prompt + outils + mode opératoire, réutilisable.",
+  },
+  {
+    q: "~40 guidelines à faire respecter. Que faire ?",
+    opts: [
+      "Générer 40 agents spécialisés",
+      "Tout mettre dans une seule rule",
+      "Ignorer, trop long",
+      "Faire un README géant",
+    ],
+    correct: 0,
+    explain: "Un système d'agents scale mieux qu'une mega-rule.",
+  },
+  {
+    q: "Un agent propose un diff. Quelle est la bonne étape suivante ?",
+    opts: [
+      "Merger direct",
+      "Copier dans un chat web",
+      "Écrire une nouvelle rule",
+      "Relire ligne à ligne",
+    ],
+    correct: 3,
+    explain: "L'agent se trompe — la relecture ligne à ligne reste obligatoire.",
+  },
+  {
+    q: "Pour brancher SQL Server à l'agent en lecture seule, on utilise…",
+    opts: ["Un skill", "Un serveur MCP", "Une rule", "Un hook Git"],
+    correct: 1,
+    explain: "MCP est le bon canal pour un outil externe.",
+  },
+  {
+    q: "Avant d'ouvrir une PR, lancez…",
+    opts: ["git push --force", "npm audit", "review-guidelines", "codex --reset"],
+    correct: 2,
+    explain: "Notre rituel équipe : trois minutes de review-guidelines.",
+  },
 ];
 
 export function Section9() {
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<(number | null)[]>(
-    Array(QUIZ.length).fill(null),
-  );
+  const [answers, setAnswers] = useState<(number | null)[]>(Array(QUIZ.length).fill(null));
   const [showResult, setShowResult] = useState(false);
   const cur = QUIZ[step];
   const answered = answers[step] !== null;
@@ -1192,9 +1424,7 @@ export function Section9() {
         Quiz final
       </Eyebrow>
       <SectionTitle>Prêt pour l'agent ?</SectionTitle>
-      <SectionLead>
-        Dix questions, une par écran. ≥ 8/10 débloque le badge Agent-ready.
-      </SectionLead>
+      <SectionLead>Dix questions, une par écran. ≥ 8/10 débloque le badge Agent-ready.</SectionLead>
 
       {!done ? (
         <div className="mt-12 rounded-3xl border border-hairline bg-surface-raised p-8 shadow-raised sm:p-12">
@@ -1204,11 +1434,7 @@ export function Section9() {
               <span
                 key={i}
                 className={`h-1.5 flex-1 rounded-full transition-colors ${
-                  i < step
-                    ? "bg-gradient-brand"
-                    : i === step
-                      ? "bg-ink/40"
-                      : "bg-ink/10"
+                  i < step ? "bg-gradient-brand" : i === step ? "bg-ink/40" : "bg-ink/10"
                 }`}
               />
             ))}
@@ -1216,9 +1442,7 @@ export function Section9() {
           <div className="eyebrow mb-3">
             Question {step + 1} / {QUIZ.length}
           </div>
-          <h3 className="text-2xl font-semibold leading-snug text-ink sm:text-3xl">
-            {cur.q}
-          </h3>
+          <h3 className="text-2xl font-semibold leading-snug text-ink sm:text-3xl">{cur.q}</h3>
 
           <div className="mt-8 grid gap-3">
             {cur.opts.map((opt, i) => {
@@ -1248,12 +1472,8 @@ export function Section9() {
                   className={`flex items-center justify-between gap-4 rounded-xl border px-5 py-4 text-left text-[15px] font-semibold transition-all ${styles[state]}`}
                 >
                   <span>{opt}</span>
-                  {answered && isRight && (
-                    <Check className="h-5 w-5 text-emerald-800" />
-                  )}
-                  {answered && picked && !isRight && (
-                    <X className="h-5 w-5 text-red-800" />
-                  )}
+                  {answered && isRight && <Check className="h-5 w-5 text-emerald-800" />}
+                  {answered && picked && !isRight && <X className="h-5 w-5 text-red-800" />}
                 </button>
               );
             })}
@@ -1267,9 +1487,7 @@ export function Section9() {
                   : "border-red-700/50 bg-red-600/15 text-ink"
               }`}
             >
-              <strong>
-                {answers[step] === cur.correct ? "Bonne réponse. " : "Faux. "}
-              </strong>
+              <strong>{answers[step] === cur.correct ? "Bonne réponse. " : "Faux. "}</strong>
               {cur.explain}
             </div>
           )}
@@ -1319,8 +1537,7 @@ function QuizResult({ score, onReset }: { score: number; onReset: () => void }) 
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-70"
           style={{
-            background:
-              "radial-gradient(ellipse at top, rgba(124,58,237,0.15), transparent 50%)",
+            background: "radial-gradient(ellipse at top, rgba(124,58,237,0.15), transparent 50%)",
           }}
         />
       )}
@@ -1391,8 +1608,7 @@ export function Footer() {
             {SECTIONS.slice(1, 6).map((s) => (
               <li key={s.id}>
                 <a href={`#${s.id}`} className="text-ink-soft transition-colors hover:text-ink">
-                  <span className="font-mono text-[11px] text-ink-soft/60">{s.num}</span>{" "}
-                  {s.label}
+                  <span className="font-mono text-[11px] text-ink-soft/60">{s.num}</span> {s.label}
                 </a>
               </li>
             ))}
@@ -1404,8 +1620,7 @@ export function Footer() {
             {SECTIONS.slice(6).map((s) => (
               <li key={s.id}>
                 <a href={`#${s.id}`} className="text-ink-soft transition-colors hover:text-ink">
-                  <span className="font-mono text-[11px] text-ink-soft/60">{s.num}</span>{" "}
-                  {s.label}
+                  <span className="font-mono text-[11px] text-ink-soft/60">{s.num}</span> {s.label}
                 </a>
               </li>
             ))}
