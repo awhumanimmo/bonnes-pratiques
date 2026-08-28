@@ -876,7 +876,7 @@ export function Section6() {
       <SectionTitle dark>Brancher l'agent au monde réel.</SectionTitle>
       <SectionLead dark>
         MCP est un protocole standard : l'agent parle à un serveur, le serveur
-        parle à un outil. Un adaptateur universel pour votre stack.
+        parle à un outil. Un adaptateur universel pour la stack.
       </SectionLead>
 
       {/* Flow diagram */}
