@@ -363,8 +363,8 @@ export function Section1() {
       </Eyebrow>
       <SectionTitle>Le piège du chat web.</SectionTitle>
       <SectionLead>
-        Vous générez déjà du code avec Gemini ou ChatGPT. Le problème n'est pas le
-        modèle — c'est l'endroit. Un onglet de navigateur ne verra jamais votre
+        On génère déjà du code avec Gemini ou ChatGPT. Le problème n'est pas le
+        modèle — c'est l'endroit. Un onglet de navigateur ne verra jamais le
         repo.
       </SectionLead>
 
