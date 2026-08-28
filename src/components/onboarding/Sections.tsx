@@ -1347,8 +1347,8 @@ function QuizResult({ score, onReset }: { score: number; onReset: () => void }) 
         </h3>
         <p className="mx-auto mt-3 max-w-md text-[15px] text-ink-soft">
           {passed
-            ? "Vous avez les bons réflexes. Lancez votre premier projet Codex avec les rules équipe."
-            : "Reprenez les sections où vous avez trébuché. La courbe est courte."}
+            ? "Bons réflexes validés. Lancer un premier projet Codex avec les rules équipe."
+            : "Reprendre les sections ratées. La courbe est courte."}
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <ButtonPrimary onClick={onReset}>
