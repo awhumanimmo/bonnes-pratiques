@@ -1298,7 +1298,7 @@ export function Section9() {
                 disabled={!answered}
                 className={!answered ? "pointer-events-none opacity-50" : ""}
               >
-                Voir mon score
+                Voir le score
               </ButtonPrimary>
             )}
           </div>
