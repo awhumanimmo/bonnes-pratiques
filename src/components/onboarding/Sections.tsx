@@ -548,8 +548,8 @@ export function Section2() {
       <KeyTakeaway
         items={[
           "Un contexte plein n'est pas un contexte utile — c'est un contexte bruyant.",
-          "Attachez le fichier précis, pas le dossier entier.",
-          "Videz l'historique quand vous changez de sujet.",
+          "Attacher le fichier précis, pas le dossier entier.",
+          "Vider l'historique quand on change de sujet.",
         ]}
       />
       <PrevNext current={2} />
