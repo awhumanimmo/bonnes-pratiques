@@ -205,7 +205,7 @@ export function Hero() {
         </h1>
 
         <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-ink sm:text-xl">
-          Vous utilisez déjà l'IA. Probablement au{" "}
+          Générer du code avec l'IA, c'est facile. Le faire au{" "}
           <span
             className="font-semibold italic"
             style={{
@@ -214,10 +214,10 @@ export function Hero() {
                 "linear-gradient(transparent 60%, oklch(0.78 0.09 60 / 0.5) 60%)",
             }}
           >
-            mauvais endroit
+            bon endroit
           </span>
-          . Neuf sections, un quiz, zéro connexion — pour passer du chat éphémère
-          à l'agent qui connaît votre repo.
+          , c'est autre chose. Neuf sections, un quiz, zéro connexion — pour passer du chat éphémère
+          à l'agent qui connaît le repo.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
